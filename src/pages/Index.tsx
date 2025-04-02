@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -30,10 +29,10 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                AI-Powered Security <span className="text-primary">Agents</span> For Your Team
+                Deploy AI Cybersecurity Agents <span className="text-primary">On-Demand</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Agentic Security provides on-demand AI security agents that augment your team's capabilities. Scale your security operations with specialized agents for penetration testing, incident response, and more.
+                Agentic Security delivers specialized AI agents that enhance your team's capabilities across security operations. Instantly scale expertise in IT, incident response, penetration testing, compliance, and more.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="font-medium">
@@ -45,25 +44,19 @@ const Index = () => {
               </div>
             </div>
             
-            {/* AI Thinking Visualization */}
             <div className="flex-1 flex justify-center items-center">
               <div className="relative w-64 h-64 md:w-80 md:h-80">
-                {/* Blue gradient circle */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-b from-sky-100 via-blue-300 to-blue-600 shadow-lg overflow-hidden">
-                  {/* Light beam effect */}
                   <div className="absolute top-0 left-1/4 w-1/2 h-full bg-white/30 blur-xl transform -rotate-45"></div>
                 </div>
                 
-                {/* Center brain icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative">
                     <Brain className="w-16 h-16 text-white drop-shadow-md" />
-                    {/* Pulsing circle */}
                     <div className="absolute inset-0 animate-ping bg-white/30 rounded-full duration-1000 delay-300"></div>
                   </div>
                 </div>
                 
-                {/* Floating particles */}
                 <div className="absolute top-1/4 right-1/4 w-2 h-2 rounded-full bg-white animate-pulse"></div>
                 <div className="absolute bottom-1/3 left-1/3 w-3 h-3 rounded-full bg-blue-200 animate-pulse delay-100"></div>
                 <div className="absolute top-1/2 right-1/3 w-2 h-2 rounded-full bg-blue-100 animate-pulse delay-200"></div>
@@ -73,7 +66,6 @@ const Index = () => {
         </div>
       </header>
       
-      {/* Features section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 max-w-6xl">
           <h2 className="text-3xl font-bold text-center mb-12">Security Agents For Every Need</h2>
@@ -130,7 +122,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* CTA section */}
       <section className="py-20 bg-card border-t border-border">
         <div className="container mx-auto px-4 max-w-6xl text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to enhance your security team?</h2>
@@ -143,7 +134,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Footer */}
       <footer className="py-8 bg-background border-t border-border">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
