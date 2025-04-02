@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Shield, Bot, BarChart, Lock, Code, Search } from 'lucide-react';
+import { Shield, Bot, BarChart, Lock, Code, Search, Brain } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -41,6 +42,31 @@ const Index = () => {
                 <Button asChild size="lg" variant="outline">
                   <Link to="/marketplace">Explore Agents</Link>
                 </Button>
+              </div>
+            </div>
+            
+            {/* AI Thinking Visualization */}
+            <div className="flex-1 flex justify-center items-center">
+              <div className="relative w-64 h-64 md:w-80 md:h-80">
+                {/* Blue gradient circle */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-b from-sky-100 via-blue-300 to-blue-600 shadow-lg overflow-hidden">
+                  {/* Light beam effect */}
+                  <div className="absolute top-0 left-1/4 w-1/2 h-full bg-white/30 blur-xl transform -rotate-45"></div>
+                </div>
+                
+                {/* Center brain icon */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
+                    <Brain className="w-16 h-16 text-white drop-shadow-md" />
+                    {/* Pulsing circle */}
+                    <div className="absolute inset-0 animate-ping bg-white/30 rounded-full duration-1000 delay-300"></div>
+                  </div>
+                </div>
+                
+                {/* Floating particles */}
+                <div className="absolute top-1/4 right-1/4 w-2 h-2 rounded-full bg-white animate-pulse"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-3 h-3 rounded-full bg-blue-200 animate-pulse delay-100"></div>
+                <div className="absolute top-1/2 right-1/3 w-2 h-2 rounded-full bg-blue-100 animate-pulse delay-200"></div>
               </div>
             </div>
           </div>
