@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -53,23 +52,8 @@ const Index = () => {
                 
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative">
-                    <div className="absolute -inset-8 bg-blue-500/20 rounded-full animate-pulse"></div>
-                    <div className="absolute -inset-5 bg-blue-400/30 rounded-full animate-ping duration-1000"></div>
-                    <Brain className="w-16 h-16 text-white drop-shadow-md relative z-10 animate-[glow_3s_ease-in-out_infinite]" />
-                    
-                    {/* Orbiting particles */}
-                    <div className="absolute w-full h-full animate-spin" style={{ animationDuration: '8s' }}>
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-blue-200 rounded-full shadow-lg shadow-blue-400/50"></div>
-                    </div>
-                    <div className="absolute w-full h-full animate-spin" style={{ animationDuration: '12s', animationDirection: 'reverse' }}>
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full shadow-lg shadow-blue-400/50"></div>
-                    </div>
-                    <div className="absolute w-full h-full animate-spin" style={{ animationDuration: '15s' }}>
-                      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-2 h-2 bg-blue-300 rounded-full shadow-lg shadow-blue-400/50"></div>
-                    </div>
-                    <div className="absolute w-full h-full animate-spin" style={{ animationDuration: '10s', animationDirection: 'reverse' }}>
-                      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-3 h-3 bg-blue-100 rounded-full shadow-lg shadow-blue-400/50"></div>
-                    </div>
+                    <Brain className="w-16 h-16 text-white drop-shadow-md" />
+                    <div className="absolute inset-0 animate-ping bg-white/30 rounded-full duration-1000 delay-300"></div>
                   </div>
                 </div>
                 
