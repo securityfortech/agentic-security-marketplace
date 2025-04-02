@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -42,18 +41,6 @@ const Index = () => {
                 <Button asChild size="lg" variant="outline">
                   <Link to="/marketplace">Explore Agents</Link>
                 </Button>
-              </div>
-            </div>
-            <div className="flex-1 bg-card rounded-lg p-8 border border-border animate-glow">
-              <div className="w-full aspect-square relative bg-purple-600 rounded-md border border-border">
-                <div className="absolute inset-0 flex items-center justify-center bg-purple-600">
-                  <Shield className="w-16 h-16 text-white" />
-                </div>
-                <div className="absolute top-4 right-4 flex space-x-2">
-                  <div className="w-2 h-2 rounded-full bg-destructive animate-pulse"></div>
-                  <div className="w-2 h-2 rounded-full bg-warning animate-pulse delay-100"></div>
-                  <div className="w-2 h-2 rounded-full bg-success animate-pulse delay-200"></div>
-                </div>
               </div>
             </div>
           </div>
