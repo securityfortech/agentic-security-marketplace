@@ -44,11 +44,11 @@ const Index = () => {
               </div>
             </div>
             <div className="flex-1 bg-card rounded-lg p-8 border border-border animate-glow">
-              <div className="w-full aspect-square relative bg-purple-600 rounded-md border border-border overflow-hidden shadow-[0_0_30px_rgba(126,105,171,0.5)]">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Shield className="w-16 h-16 text-white animate-pulse-slow" />
+              <div className="w-full aspect-square relative bg-purple-600 rounded-md border border-border overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center bg-purple-600">
+                  <Shield className="w-16 h-16 text-white" />
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-card to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-purple-600 to-transparent"></div>
                 <div className="absolute top-4 right-4 flex space-x-2">
                   <div className="w-2 h-2 rounded-full bg-destructive animate-pulse"></div>
                   <div className="w-2 h-2 rounded-full bg-warning animate-pulse delay-100"></div>
