@@ -44,7 +44,7 @@ const Index = () => {
               </div>
             </div>
             <div className="flex-1 bg-card rounded-lg p-8 border border-border animate-glow">
-              <div className="w-full aspect-square relative bg-purple-600 rounded-md border border-border overflow-hidden">
+              <div className="w-full aspect-square relative bg-purple-600 rounded-md border border-border overflow-hidden shadow-[0_0_30px_rgba(126,105,171,0.5)]">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Shield className="w-16 h-16 text-white animate-pulse-slow" />
                 </div>
