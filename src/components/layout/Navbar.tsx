@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bell, Settings, User } from 'lucide-react';
+import { Bell, Settings, User, LogOut } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
   DropdownMenu,
@@ -11,9 +11,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
+import { useAuth } from '@/contexts/AuthContext';
 
 const Navbar = () => {
-  const userIsAuthenticated = false; // To be replaced with actual auth state
+  const { user, signOut } = useAuth();
 
   return (
     <nav className="bg-card border-b border-border h-16 flex items-center px-4 lg:px-6">
@@ -28,7 +29,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-2">
-          {userIsAuthenticated ? (
+          {user ? (
             <>
               <Button variant="ghost" size="icon" className="text-foreground">
                 <Bell className="h-5 w-5" />
@@ -43,17 +44,22 @@ const Navbar = () => {
                 <DropdownMenuContent align="end" className="w-56">
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <User className="mr-2 h-4 w-4" />
-                    <span>Profile</span>
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile" className="flex items-center">
+                      <User className="mr-2 h-4 w-4" />
+                      <span>Profile</span>
+                    </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Settings className="mr-2 h-4 w-4" />
-                    <span>Settings</span>
+                  <DropdownMenuItem asChild>
+                    <Link to="/settings" className="flex items-center">
+                      <Settings className="mr-2 h-4 w-4" />
+                      <span>Settings</span>
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    Logout
+                  <DropdownMenuItem onClick={signOut} className="cursor-pointer">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Logout</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
