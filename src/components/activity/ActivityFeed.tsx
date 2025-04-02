@@ -9,7 +9,7 @@ interface ActivityFeedProps {
 
 const ActivityFeed: React.FC<ActivityFeedProps> = ({ activities }) => {
   return (
-    <Card>
+    <Card className="border border-border shadow-sm">
       <CardHeader>
         <CardTitle>Recent Activity</CardTitle>
       </CardHeader>
