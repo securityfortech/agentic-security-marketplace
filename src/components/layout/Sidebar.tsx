@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -59,7 +58,7 @@ const Sidebar = () => {
             <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold">AS</span>
             </div>
-            <span>Agentic Security</span>
+            {/* Removed the "Agentic Security" text */}
           </Link>
           
           <nav className="flex flex-col gap-1">
