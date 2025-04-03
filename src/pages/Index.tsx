@@ -14,12 +14,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-gradient-to-br from-background to-card border-b border-border">
+      <HomepageHeader />
+      
+      <div className="bg-gradient-to-br from-background to-card border-b border-border">
         <div className="container mx-auto px-4 py-6 md:py-8 max-w-6xl">
-          {user ? <HomepageHeader /> : <LandingHeader />}
           <Hero />
         </div>
-      </header>
+      </div>
       
       <Features />
       <Benefits />

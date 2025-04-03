@@ -2,7 +2,6 @@
 import React from 'react';
 import MarketplaceContent from '@/components/marketplace/MarketplaceContent';
 import PublicHeader from '@/components/marketplace/PublicHeader';
-import HomepageHeader from '@/components/character-homepage/HomepageHeader';
 import PublicFooter from '@/components/marketplace/PublicFooter';
 import { marketplaceAgents } from '@/components/marketplace/marketplaceData';
 import { useAuth } from '@/contexts/AuthContext';
@@ -18,7 +17,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ isPublic = false }) => {
   if (isPublic) {
     return (
       <div className="min-h-screen flex flex-col">
-        {user ? <HomepageHeader /> : <PublicHeader />}
+        <PublicHeader />
 
         {/* Main content */}
         <main className="flex-1 bg-background p-4 md:p-6">
