@@ -1,6 +1,5 @@
-
 import { useState } from 'react';
-import { Agent } from '@/components/marketplace/marketplaceData';
+import { Agent } from '@/data/agents/types';
 
 export function useAgentFilter(agents: Agent[]) {
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import AgentList from '@/components/agents/AgentList';
-import { Agent } from '@/components/agents/AgentCard';
+import { Agent } from '@/data/agents/types';
 import { useToast } from '@/hooks/use-toast';
 
 interface AgentHireHandlerProps {

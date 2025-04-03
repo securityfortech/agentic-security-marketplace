@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Agent } from '@/components/marketplace/marketplaceData';
+import { Agent } from '@/data/agents/types';
 import { Button } from '@/components/ui/button';
 import { Avatar } from '@/components/ui/avatar';
 import { MessageCircle } from 'lucide-react';

@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Agent } from '@/components/agents/AgentCard';
+import { Agent } from '@/data/agents/types';
 import { Button } from '@/components/ui/button';
 import { Avatar } from '@/components/ui/avatar';
 import { Shield, MessageCircle } from 'lucide-react';

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Agent } from '@/components/agents/AgentCard';
+import { Agent } from '@/data/agents/types';
 import MarketplaceHeader from './MarketplaceHeader';
 import FilterControls from './FilterControls';
 import AgentHireHandler from './AgentHireHandler';
