@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useAuth } from '@/contexts/AuthContext';
+import { SidebarTrigger } from '@/components/ui/sidebar';
 
 const Navbar = () => {
   const { user, signOut } = useAuth();
@@ -25,19 +26,20 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-card border-b border-border h-16 flex items-center px-4 lg:px-6">
+    <nav className="bg-transparent border-b border-zinc-800 h-16 flex items-center px-4 lg:px-6">
       <div className="flex-1 flex items-center justify-between w-full">
         <div className="flex items-center space-x-2">
+          <SidebarTrigger className="mr-2 text-white" />
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold">AS</span>
+            <div className="w-8 h-8 rounded-md bg-emerald-500 flex items-center justify-center">
+              <span className="text-black font-bold">AS</span>
             </div>
-            <span className="font-bold text-xl hidden md:inline-block">Agentic Security</span>
+            <span className="font-bold text-xl hidden md:inline-block">agentic-security</span>
           </Link>
         </div>
 
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon" className="text-foreground">
+          <Button variant="ghost" size="icon" className="text-white">
             <Bell className="h-5 w-5" />
           </Button>
           
@@ -45,7 +47,7 @@ const Navbar = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="rounded-full p-0">
                 <Avatar className="h-8 w-8">
-                  <AvatarFallback>{getInitials()}</AvatarFallback>
+                  <AvatarFallback className="bg-zinc-800 text-white">{getInitials()}</AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
