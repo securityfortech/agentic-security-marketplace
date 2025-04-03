@@ -11,13 +11,19 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const Index = () => {
   const { user, signOut } = useAuth();
 
+  const getInitials = () => {
+    if (!user) return 'U';
+    const name = user.user_metadata?.name || user.email || '';
+    return name.split('@')[0].substring(0, 2).toUpperCase();
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Hero section with improved styling */}
       <header className="bg-gradient-to-br from-background to-card border-b border-border">
         <div className="container mx-auto px-4 py-6 md:py-8 max-w-6xl">
           <nav className="flex justify-between items-center mb-10 md:mb-16">
@@ -36,17 +42,19 @@ const Index = () => {
                   
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="rounded-full">
-                        <User className="h-5 w-5" />
+                      <Button variant="ghost" size="icon" className="rounded-full p-0">
+                        <Avatar className="h-8 w-8">
+                          <AvatarFallback>{getInitials()}</AvatarFallback>
+                        </Avatar>
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-56">
                       <DropdownMenuLabel>My Account</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem asChild>
-                        <Link to="/profile" className="flex items-center">
+                        <Link to="/dashboard" className="flex items-center">
                           <User className="mr-2 h-4 w-4" />
-                          <span>Profile</span>
+                          <span>Dashboard</span>
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem asChild>
@@ -119,7 +127,6 @@ const Index = () => {
         </div>
       </header>
       
-      {/* Features section with improved cards */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
@@ -128,7 +135,6 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Card 1 */}
             <div className="bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-all overflow-hidden group">
               <div className="h-2 bg-gradient-to-r from-blue-400 to-blue-600"></div>
               <div className="p-6">
@@ -140,7 +146,6 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Card 2 */}
             <div className="bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-all overflow-hidden group">
               <div className="h-2 bg-gradient-to-r from-orange-400 to-red-500"></div>
               <div className="p-6">
@@ -152,7 +157,6 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Card 3 */}
             <div className="bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-all overflow-hidden group">
               <div className="h-2 bg-gradient-to-r from-purple-400 to-indigo-500"></div>
               <div className="p-6">
@@ -164,7 +168,6 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Card 4 */}
             <div className="bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-all overflow-hidden group">
               <div className="h-2 bg-gradient-to-r from-green-400 to-teal-500"></div>
               <div className="p-6">
@@ -176,7 +179,6 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Card 5 */}
             <div className="bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-all overflow-hidden group">
               <div className="h-2 bg-gradient-to-r from-red-400 to-pink-500"></div>
               <div className="p-6">
@@ -188,7 +190,6 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Card 6 */}
             <div className="bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-all overflow-hidden group">
               <div className="h-2 bg-gradient-to-r from-yellow-400 to-amber-500"></div>
               <div className="p-6">
@@ -203,7 +204,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Benefits section (new) */}
       <section className="py-20 bg-card/50">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
@@ -255,7 +255,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* CTA section with improved styling */}
       <section className="py-20 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border-t border-border">
         <div className="container mx-auto px-4 max-w-6xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to enhance your security team?</h2>
@@ -273,7 +272,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Footer with improved spacing */}
       <footer className="py-10 bg-background border-t border-border">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
