@@ -92,18 +92,37 @@ export default {
         },
         'pulse-slow': {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.5' }
+          '50%': { opacity: '0.7' }
         },
         'glow': {
           '0%, 100%': { boxShadow: '0 0 5px rgba(109, 40, 217, 0.5)' },
           '50%': { boxShadow: '0 0 20px rgba(109, 40, 217, 0.8)' }
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' }
+        },
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        'slide-in-right': {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'glow': 'glow 2s ease-in-out infinite'
+        'glow': 'glow 2s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'fade-in': 'fade-in 0.5s ease-out',
+        'slide-in-right': 'slide-in-right 0.5s ease-out'
+      },
+      backgroundImage: {
+        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 0V20M20 1H0' stroke='%23ffffff' stroke-opacity='0.1' stroke-width='1'/%3E%3C/svg%3E\")",
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       }
     }
   },
