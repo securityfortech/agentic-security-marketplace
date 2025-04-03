@@ -11,10 +11,18 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useAuth } from '@/contexts/AuthContext';
 
 const Navbar = () => {
   const { user, signOut } = useAuth();
+
+  // Generate initials for avatar fallback
+  const getInitials = () => {
+    if (!user) return 'U';
+    const name = user.user_metadata?.name || user.email || '';
+    return name.split('@')[0].substring(0, 2).toUpperCase();
+  };
 
   return (
     <nav className="bg-card border-b border-border h-16 flex items-center px-4 lg:px-6">
@@ -28,7 +36,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-4">
           {user ? (
             <>
               <Button variant="ghost" size="icon" className="text-foreground">
@@ -37,17 +45,19 @@ const Navbar = () => {
               
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <User className="h-5 w-5" />
+                  <Button variant="ghost" size="icon" className="rounded-full p-0">
+                    <Avatar className="h-8 w-8">
+                      <AvatarFallback>{getInitials()}</AvatarFallback>
+                    </Avatar>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link to="/profile" className="flex items-center">
+                    <Link to="/dashboard" className="flex items-center">
                       <User className="mr-2 h-4 w-4" />
-                      <span>Profile</span>
+                      <span>Dashboard</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
