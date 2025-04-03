@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Search } from 'lucide-react';
 import { Input } from "@/components/ui/input";
@@ -6,14 +5,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 export const agentTypes = [
-  "Pentester",
-  "Incident Responder",
-  "Reverse Engineer",
-  "Compliance Analyst",
-  "Security Monitor",
-  "Threat Hunter",
-  "Vulnerability Scanner",
-  "Security Auditor"
+  "IT",
+  "Compliance", 
+  "Pentest", 
+  "Response", 
+  "Awareness"
 ];
 
 interface AgentFilterProps {

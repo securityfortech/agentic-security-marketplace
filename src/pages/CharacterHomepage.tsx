@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -15,7 +14,6 @@ const CharacterHomepage = () => {
   const { user } = useAuth();
   const { toast } = useToast();
   
-  // Use the agent filter hook
   const {
     searchTerm,
     selectedTypes,
@@ -25,10 +23,8 @@ const CharacterHomepage = () => {
     filteredAgents
   } = useAgentFilter(marketplaceAgents);
   
-  // Function to handle mobile search display
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   
-  // Handle hiring an agent
   const handleHireAgent = (agent: any) => {
     if (!user) {
       toast({
@@ -43,7 +39,6 @@ const CharacterHomepage = () => {
     }
   };
   
-  // Organize filtered agents into categories
   const featuredAgents = filteredAgents.filter(agent => agent.featured).slice(0, 4);
   const securityAgents = filteredAgents.filter(agent => agent.category === 'Security').slice(0, 4);
   const networkAgents = filteredAgents.filter(agent => agent.category === 'Network').slice(0, 4);
@@ -51,7 +46,6 @@ const CharacterHomepage = () => {
   
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
       <header className="bg-card border-b border-border sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
@@ -94,9 +88,7 @@ const CharacterHomepage = () => {
         </div>
       </header>
       
-      {/* Main content */}
       <main className="container mx-auto px-4 py-8">
-        {/* Filter section (always visible) */}
         <div className="mb-6">
           <div className="md:hidden mb-4 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -108,7 +100,6 @@ const CharacterHomepage = () => {
             />
           </div>
           
-          {/* Agent type filter */}
           <div>
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm font-medium">Filter by type</p>
@@ -120,7 +111,7 @@ const CharacterHomepage = () => {
             </div>
             
             <div className="flex flex-wrap gap-2">
-              {['Security', 'Network', 'Monitoring', 'Response', 'Prevention'].map((type) => (
+              {['IT', 'Compliance', 'Pentest', 'Response', 'Awareness'].map((type) => (
                 <Button 
                   key={type} 
                   variant={selectedTypes.includes(type) ? "default" : "outline"} 
@@ -134,7 +125,6 @@ const CharacterHomepage = () => {
           </div>
         </div>
         
-        {/* Check if we have any results from the filter */}
         {filteredAgents.length === 0 ? (
           <div className="text-center py-12">
             <h3 className="text-xl font-semibold mb-2">No agents found</h3>
@@ -142,7 +132,6 @@ const CharacterHomepage = () => {
           </div>
         ) : (
           <>
-            {/* For you section */}
             {featuredAgents.length > 0 && (
               <AgentCategory 
                 title="For you" 
@@ -151,7 +140,6 @@ const CharacterHomepage = () => {
               />
             )}
             
-            {/* Featured section */}
             {securityAgents.length > 0 && (
               <AgentCategory 
                 title="Featured" 
@@ -160,7 +148,6 @@ const CharacterHomepage = () => {
               />
             )}
             
-            {/* Popular section */}
             {popularAgents.length > 0 && (
               <AgentCategory 
                 title="Popular" 
@@ -169,7 +156,6 @@ const CharacterHomepage = () => {
               />
             )}
             
-            {/* Trending section */}
             {networkAgents.length > 0 && (
               <AgentCategory 
                 title="Trending" 
@@ -180,11 +166,10 @@ const CharacterHomepage = () => {
           </>
         )}
         
-        {/* Categories section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold mb-4">Categories</h2>
           <div className="flex flex-wrap gap-2">
-            {['Security', 'Network', 'Monitoring', 'Response', 'Prevention'].map((category) => (
+            {['IT', 'Compliance', 'Pentest', 'Response', 'Awareness'].map((category) => (
               <Button key={category} variant="outline" className="rounded-full">
                 {category}
               </Button>
@@ -193,7 +178,6 @@ const CharacterHomepage = () => {
         </div>
       </main>
       
-      {/* Footer */}
       <footer className="py-8 bg-background border-t border-border mt-12">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
