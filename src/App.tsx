@@ -14,6 +14,8 @@ import NotFound from "./pages/NotFound";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import CharacterHomepage from "./pages/CharacterHomepage";
+import Marketplace from "./pages/Marketplace";
+import MarketplaceUsage from "./pages/MarketplaceUsage";
 
 const queryClient = new QueryClient();
 
@@ -57,6 +59,16 @@ const App = () => (
                 <ProtectedRoute>
                   <Layout>
                     <Activity />
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/marketplace/usage" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <MarketplaceUsage />
                   </Layout>
                 </ProtectedRoute>
               } 
