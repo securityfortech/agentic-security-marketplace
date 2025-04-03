@@ -55,6 +55,3 @@ export {
   threatIntelligenceDetectionAgents,
   automationReportingAssistiveAgents
 };
-
-// Export the Agent type for use in other components
-export { Agent } from './types';

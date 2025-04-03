@@ -4,6 +4,6 @@
 export { 
   marketplaceAgents,
   agentTypes,
-  agentsByType,
-  Agent
+  agentsByType
 } from '@/data/agents';
+export { Agent } from '@/data/agents/types';

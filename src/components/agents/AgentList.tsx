@@ -1,6 +1,7 @@
 
 import React from 'react';
-import AgentCard, { Agent } from './AgentCard';
+import AgentCard from './AgentCard';
+import { Agent } from '@/data/agents/types';
 
 interface AgentListProps {
   agents: Agent[];
