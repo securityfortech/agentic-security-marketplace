@@ -28,8 +28,8 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
                 <h3 className="font-semibold text-base truncate">{agent.name}</h3>
                 <p className="text-xs text-muted-foreground truncate">By @{agent.creator}</p>
                 <div className="flex gap-2 mt-1">
-                  <Badge variant="outline" className="text-xs">{agent.category}</Badge>
-                  <Badge variant="secondary" className="text-xs">{agent.type}</Badge>
+                  <Badge variant="outline" className="text-xs rounded-md">{agent.category}</Badge>
+                  <Badge variant="secondary" className="text-xs rounded-md">{agent.type}</Badge>
                 </div>
               </div>
             </div>
@@ -40,12 +40,12 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
               {agent.features && agent.features.length > 0 && (
                 <div className="mt-2 flex flex-wrap gap-2">
                   {agent.features.slice(0, 2).map((feature, index) => (
-                    <Badge key={index} variant="secondary" className="text-[10px]">
+                    <Badge key={index} variant="secondary" className="text-[10px] rounded-md">
                       {feature}
                     </Badge>
                   ))}
                   {agent.features.length > 2 && (
-                    <Badge variant="secondary" className="text-[10px]">
+                    <Badge variant="secondary" className="text-[10px] rounded-md">
                       +{agent.features.length - 2}
                     </Badge>
                   )}
@@ -76,4 +76,3 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
 };
 
 export default AgentCategory;
-
