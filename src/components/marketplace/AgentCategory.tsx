@@ -27,9 +27,9 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
               <div className="flex flex-col min-w-0">
                 <h3 className="font-semibold text-base truncate">{agent.name}</h3>
                 <p className="text-xs text-muted-foreground truncate">By @{agent.creator}</p>
-                <div className="flex gap-1 mt-1">
-                  <Badge variant="outline" className="self-start text-xs">{agent.category}</Badge>
-                  <Badge variant="secondary" className="self-start text-xs">{agent.type}</Badge>
+                <div className="flex gap-2 mt-1">
+                  <Badge variant="outline" className="text-xs">{agent.category}</Badge>
+                  <Badge variant="secondary" className="text-xs">{agent.type}</Badge>
                 </div>
               </div>
             </div>
@@ -38,14 +38,14 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
               <p className="text-xs line-clamp-2 h-8 text-muted-foreground">{agent.description}</p>
               
               {agent.features && agent.features.length > 0 && (
-                <div className="mt-2 flex flex-wrap gap-1">
+                <div className="mt-2 flex flex-wrap gap-2">
                   {agent.features.slice(0, 2).map((feature, index) => (
-                    <Badge key={index} variant="secondary" className="text-[10px] px-1.5 py-0">
+                    <Badge key={index} variant="secondary" className="text-[10px]">
                       {feature}
                     </Badge>
                   ))}
                   {agent.features.length > 2 && (
-                    <Badge variant="secondary" className="text-[10px] px-1.5 py-0">
+                    <Badge variant="secondary" className="text-[10px]">
                       +{agent.features.length - 2}
                     </Badge>
                   )}
@@ -76,3 +76,4 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
 };
 
 export default AgentCategory;
+
