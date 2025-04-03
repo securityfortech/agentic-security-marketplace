@@ -3,7 +3,7 @@ import React from 'react';
 import { Agent } from '@/data/agents/types';
 import { Button } from '@/components/ui/button';
 import { Avatar } from '@/components/ui/avatar';
-import { MessageCircle, Shield } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 
@@ -96,13 +96,6 @@ const CategorySection = ({ title, agents, onHireAgent, showLoadMore = false }: C
                 <h3 className="font-semibold text-sm line-clamp-1">{agent.name}</h3>
                 <p className="text-xs text-muted-foreground line-clamp-1">{agent.title || agent.type}</p>
               </div>
-              
-              {agent.featured && (
-                <Badge variant="outline" className="ml-auto text-xs font-medium flex items-center">
-                  <Shield className="w-3 h-3 mr-1" />
-                  Featured
-                </Badge>
-              )}
             </div>
             
             <p className="text-xs text-muted-foreground mb-3 line-clamp-2 flex-grow">
