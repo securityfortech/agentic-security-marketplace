@@ -1,4 +1,3 @@
-
 export interface Agent {
   id: string;
   name: string;
@@ -171,6 +170,200 @@ export const marketplaceAgents: Agent[] = [
       'Device control',
       'Application security',
       'Behavior monitoring'
+    ]
+  },
+  {
+    id: '9',
+    name: 'OSINT Analyst',
+    description: 'Collects and analyzes open-source intelligence for threat assessment',
+    price: 649,
+    category: 'Intelligence',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    featured: true,
+    creator: 'threatintel',
+    interactions: 276500,
+    type: 'OSINT',
+    image: 'linear-gradient(135deg, #3a7bd5, #00d2ff)',
+    features: [
+      'Social media monitoring',
+      'Dark web analysis',
+      'Geolocation tracking',
+      'Digital footprint assessment'
+    ]
+  },
+  {
+    id: '10',
+    name: 'Ransomware Defender',
+    description: 'Prevents, detects, and mitigates ransomware attacks before they cause damage',
+    price: 899,
+    category: 'Security',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    creator: 'securityshield',
+    interactions: 198400,
+    type: 'Response',
+    image: 'linear-gradient(90deg, #FF416C, #FF4B2B)',
+    features: [
+      'Behavior-based detection',
+      'Real-time file monitoring',
+      'Automated backup',
+      'System restore capabilities'
+    ]
+  },
+  {
+    id: '11',
+    name: 'Awareness Trainer',
+    description: 'Creates and delivers customized security awareness training programs',
+    price: 349,
+    category: 'Training',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    featured: true,
+    creator: 'securityedu',
+    interactions: 342100,
+    type: 'Awareness',
+    image: 'linear-gradient(to right, #6a11cb, #2575fc)',
+    features: [
+      'Phishing simulations',
+      'Interactive modules',
+      'Progress tracking',
+      'Customized content'
+    ]
+  },
+  {
+    id: '12',
+    name: 'Policy Enforcer',
+    description: 'Ensures compliance with organizational security policies and standards',
+    price: 549,
+    category: 'Compliance',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    creator: 'compliance360',
+    interactions: 124700,
+    type: 'Compliance',
+    image: 'linear-gradient(45deg, #2E3192, #1BFFFF)',
+    features: [
+      'Policy monitoring',
+      'Violation reporting',
+      'Automated enforcement',
+      'Compliance dashboards'
+    ]
+  },
+  {
+    id: '13',
+    name: 'Threat Hunter Pro',
+    description: 'Proactively searches for advanced persistent threats in your network',
+    price: 979,
+    category: 'Security',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    featured: true,
+    creator: 'huntexperts',
+    interactions: 385200,
+    type: 'Threat Hunting',
+    image: 'linear-gradient(90deg, #3F2B96, #A8C0FF)',
+    features: [
+      'Behavior analytics',
+      'Anomaly detection',
+      'APT identification',
+      'Threat intelligence integration'
+    ]
+  },
+  {
+    id: '14',
+    name: 'Web App Scanner',
+    description: 'Identifies and helps remediate vulnerabilities in web applications',
+    price: 599,
+    category: 'Security',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    creator: 'websec',
+    interactions: 215600,
+    type: 'Pentest',
+    image: 'linear-gradient(to bottom right, #00F260, #0575E6)',
+    features: [
+      'OWASP Top 10 checks',
+      'Custom payloads',
+      'API testing',
+      'Remediation guidance'
+    ]
+  },
+  {
+    id: '15',
+    name: 'Data Privacy Guardian',
+    description: 'Ensures compliance with data privacy regulations like GDPR and CCPA',
+    price: 749,
+    category: 'Compliance',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    creator: 'privacyshield',
+    interactions: 167800,
+    type: 'Compliance',
+    image: 'linear-gradient(to top left, #FF5E62, #FF9966)',
+    features: [
+      'PII scanning',
+      'Consent management',
+      'Data mapping',
+      'Breach notification'
+    ]
+  },
+  {
+    id: '16',
+    name: 'Phishing Defender',
+    description: 'Detects and blocks phishing attempts before they reach users',
+    price: 499,
+    category: 'Security',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    featured: true,
+    creator: 'emailsec',
+    interactions: 294500,
+    type: 'Awareness',
+    image: 'linear-gradient(to right, #8E2DE2, #4A00E0)',
+    features: [
+      'Email filtering',
+      'URL analysis',
+      'Attachment scanning',
+      'User notifications'
+    ]
+  },
+  {
+    id: '17',
+    name: 'Dark Web Monitor',
+    description: 'Monitors the dark web for leaked credentials and sensitive information',
+    price: 649,
+    category: 'Intelligence',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    creator: 'darkwatcher',
+    interactions: 165300,
+    type: 'OSINT',
+    image: 'linear-gradient(45deg, #283048, #859398)',
+    features: [
+      'Credentials monitoring',
+      'Data breach alerts',
+      'Dark web scanning',
+      'Risk assessment'
+    ]
+  },
+  {
+    id: '18',
+    name: 'Cloud Security Guardian',
+    description: 'Monitors and secures cloud environments against misconfiguration and threats',
+    price: 799,
+    category: 'Security',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    creator: 'clouddefend',
+    interactions: 231000,
+    type: 'IT',
+    image: 'linear-gradient(to top, #30cfd0, #330867)',
+    features: [
+      'Cloud posture management',
+      'Misconfiguration detection',
+      'Compliance benchmarking',
+      'Remediation automation'
     ]
   }
 ];
