@@ -1,4 +1,5 @@
 
+// Make sure the Agent interface is exported
 export interface AgentSkill {
   name: string;
   level: 'beginner' | 'intermediate' | 'expert';
