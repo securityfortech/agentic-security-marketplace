@@ -1,78 +1,168 @@
+export interface Agent {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  status: 'active' | 'inactive';
+  features: string[];
+}
 
-import { Agent } from '@/components/agents/AgentCard';
+// Update the Agent interface to include additional fields needed for Character.ai style
+export interface Agent {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  avatar?: string;
+  status: 'active' | 'inactive';
+  features: string[];
+  featured?: boolean;
+  creator?: string;
+  interactions: number;
+}
 
-// Sample marketplace agents data
+// Updated data with new fields
 export const marketplaceAgents: Agent[] = [
   {
     id: '1',
-    name: 'NetProwler',
-    description: 'Advanced network penetration testing agent with expertise in identifying vulnerabilities across your infrastructure.',
-    type: 'Pentester',
-    skills: [
-      { name: 'Network Scanning', level: 'expert' },
-      { name: 'Exploit Development', level: 'intermediate' },
-      { name: 'Vulnerability Assessment', level: 'expert' }
-    ],
-    price: '$125'
+    name: 'Network Guardian',
+    description: 'Monitors network traffic and identifies suspicious patterns',
+    price: 499,
+    category: 'Network',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    featured: true,
+    creator: 'securitylab',
+    interactions: 317500,
+    features: [
+      'Real-time traffic analysis',
+      'Anomaly detection',
+      'Automated alerts',
+      'Detailed threat reports'
+    ]
   },
   {
     id: '2',
-    name: 'IncidentShield',
-    description: 'Automated incident response agent that helps your team react quickly to security breaches and contains threats.',
-    type: 'Incident Responder',
-    skills: [
-      { name: 'Threat Hunting', level: 'expert' },
-      { name: 'Malware Analysis', level: 'intermediate' },
-      { name: 'Forensic Investigation', level: 'expert' }
-    ],
-    price: '$140'
+    name: 'Perimeter Defender',
+    description: 'Protects your network perimeter from external threats',
+    price: 699,
+    category: 'Security',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    featured: true,
+    creator: 'firewallpro',
+    interactions: 64800,
+    features: [
+      'Firewall integration',
+      'Intrusion prevention',
+      'Automated blocking',
+      'Threat intelligence'
+    ]
   },
   {
     id: '3',
-    name: 'ByteHunter',
-    description: 'Binary analysis expert that can reverse engineer malware and suspicious executables to determine their purpose.',
-    type: 'Reverse Engineer',
-    skills: [
-      { name: 'Binary Analysis', level: 'expert' },
-      { name: 'Malware Deobfuscation', level: 'expert' },
-      { name: 'Assembly Code Analysis', level: 'intermediate' }
-    ],
-    price: '$165'
+    name: 'Data Shield',
+    description: 'Protects sensitive data from unauthorized access',
+    price: 599,
+    category: 'Security',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    creator: 'dataguard',
+    interactions: 128000,
+    features: [
+      'Data encryption',
+      'Access control',
+      'Compliance monitoring',
+      'Data leak prevention'
+    ]
   },
   {
     id: '4',
-    name: 'ComplianceGuard',
-    description: 'Ensures your systems meet regulatory requirements by continuously auditing and reporting on compliance issues.',
-    type: 'Compliance Analyst',
-    skills: [
-      { name: 'Regulatory Framework Expertise', level: 'expert' },
-      { name: 'Audit Documentation', level: 'intermediate' },
-      { name: 'Gap Analysis', level: 'expert' }
-    ],
-    price: '$110'
+    name: 'Threat Hunter',
+    description: 'Proactively searches for and eliminates potential threats',
+    price: 899,
+    category: 'Security',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    featured: true,
+    creator: 'threatintel',
+    interactions: 482100,
+    features: [
+      'Advanced threat detection',
+      'Behavior analysis',
+      'Automated response',
+      'Forensic investigation'
+    ]
   },
   {
     id: '5',
-    name: 'VulnScanner Pro',
-    description: 'High-speed vulnerability scanner that continuously monitors your web applications for security issues.',
-    type: 'Vulnerability Scanner',
-    skills: [
-      { name: 'Web App Scanning', level: 'expert' },
-      { name: 'OWASP Top 10', level: 'expert' },
-      { name: 'API Security', level: 'intermediate' }
-    ],
-    price: '$95'
+    name: 'Compliance Monitor',
+    description: 'Ensures compliance with regulatory requirements',
+    price: 399,
+    category: 'Monitoring',
+    avatar: '/placeholder.svg',
+    status: 'inactive',
+    creator: 'regulatorypro',
+    interactions: 56600,
+    features: [
+      'Compliance reporting',
+      'Policy enforcement',
+      'Audit preparation',
+      'Gap analysis'
+    ]
   },
   {
     id: '6',
-    name: 'ThreatHound',
-    description: 'Proactive threat hunting agent that searches for indicators of compromise before they become full breaches.',
-    type: 'Threat Hunter',
-    skills: [
-      { name: 'IOC Detection', level: 'expert' },
-      { name: 'Behavior Analysis', level: 'intermediate' },
-      { name: 'Threat Intelligence', level: 'expert' }
-    ],
-    price: '$150'
+    name: 'Incident Responder',
+    description: 'Rapidly responds to security incidents to minimize damage',
+    price: 799,
+    category: 'Response',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    featured: true,
+    creator: 'incidentteam',
+    interactions: 98700,
+    features: [
+      'Automated response',
+      'Incident analysis',
+      'Damage control',
+      'Recovery assistance'
+    ]
   },
+  {
+    id: '7',
+    name: 'Vulnerability Scanner',
+    description: 'Identifies vulnerabilities in your systems and applications',
+    price: 599,
+    category: 'Security',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    creator: 'securityscan',
+    interactions: 204300,
+    features: [
+      'Automated scanning',
+      'Vulnerability prioritization',
+      'Remediation guidance',
+      'Security reporting'
+    ]
+  },
+  {
+    id: '8',
+    name: 'Endpoint Protector',
+    description: 'Secures endpoint devices from malware and other threats',
+    price: 549,
+    category: 'Security',
+    avatar: '/placeholder.svg',
+    status: 'active',
+    creator: 'endpointdef',
+    interactions: 187000,
+    features: [
+      'Anti-malware',
+      'Device control',
+      'Application security',
+      'Behavior monitoring'
+    ]
+  }
 ];

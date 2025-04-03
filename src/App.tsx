@@ -13,7 +13,7 @@ import SignUp from "./pages/SignUp";
 import NotFound from "./pages/NotFound";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import Marketplace from "./pages/Marketplace";
+import CharacterHomepage from "./pages/CharacterHomepage";
 
 const queryClient = new QueryClient();
 
@@ -25,8 +25,8 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            {/* Public Marketplace as the landing page */}
-            <Route path="/" element={<Marketplace isPublic={true} />} />
+            {/* Character.ai style homepage */}
+            <Route path="/" element={<CharacterHomepage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             
