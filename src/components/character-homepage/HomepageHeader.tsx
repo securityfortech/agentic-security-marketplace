@@ -32,13 +32,15 @@ const HomepageHeader = ({ searchTerm, setSearchTerm }: HomepageHeaderProps) => {
 
   return (
     <header className="bg-card border-b border-border sticky top-0 z-10">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold">AS</span>
-            </div>
-            <span className="font-bold text-xl">Agentic Security</span>
+            <Link to="/" className="flex items-center space-x-2">
+              <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
+                <span className="text-primary-foreground font-bold">AS</span>
+              </div>
+              <span className="font-bold text-xl">Agentic Security</span>
+            </Link>
           </div>
           
           <div className="hidden md:flex items-center space-x-4 flex-1 max-w-md mx-4">
@@ -46,7 +48,7 @@ const HomepageHeader = ({ searchTerm, setSearchTerm }: HomepageHeaderProps) => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search agents..."
-                className="pl-10 w-full"
+                className="pl-10 w-full rounded-full"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -93,10 +95,10 @@ const HomepageHeader = ({ searchTerm, setSearchTerm }: HomepageHeaderProps) => {
               </>
             ) : (
               <>
-                <Button asChild variant="ghost">
+                <Button asChild variant="ghost" className="rounded-full">
                   <Link to="/login">Login</Link>
                 </Button>
-                <Button asChild>
+                <Button asChild className="rounded-full">
                   <Link to="/signup">Sign Up to Chat</Link>
                 </Button>
               </>

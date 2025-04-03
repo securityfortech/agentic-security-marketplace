@@ -8,10 +8,14 @@ import HomepageHeader from '@/components/character-homepage/HomepageHeader';
 import HomepageFooter from '@/components/character-homepage/HomepageFooter';
 import MobileSearchAndFilter from '@/components/character-homepage/MobileSearchAndFilter';
 import AgentCategories from '@/components/character-homepage/AgentCategories';
+import AgentSpotlight from '@/components/character-homepage/AgentSpotlight';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const CharacterHomepage = () => {
   const { user } = useAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
   
   const {
     searchTerm,
@@ -30,6 +34,7 @@ const CharacterHomepage = () => {
         title: "Authentication Required",
         description: "Please sign in or create an account to hire agents.",
       });
+      navigate('/signup');
     } else {
       toast({
         title: "Agent Hired",
@@ -38,11 +43,37 @@ const CharacterHomepage = () => {
     }
   };
   
+  // Get featured agents for spotlight section
+  const featuredAgents = marketplaceAgents.filter(agent => agent.featured).slice(0, 3);
+  
   return (
     <div className="min-h-screen bg-background">
       <HomepageHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       
+      {!user && (
+        <div className="bg-gradient-to-r from-primary/10 to-purple-500/10 py-12 border-b border-border">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl font-bold mb-6">Meet your AI Security Agents</h1>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Chat with specialized security agents designed to protect your organization
+              from various cyber threats.
+            </p>
+            <Button 
+              onClick={() => navigate('/signup')} 
+              size="lg" 
+              className="rounded-full font-medium"
+            >
+              Get Started
+            </Button>
+          </div>
+        </div>
+      )}
+      
       <main className="container mx-auto px-4 py-8">
+        {featuredAgents.length > 0 && (
+          <AgentSpotlight agents={featuredAgents} onHireAgent={handleHireAgent} />
+        )}
+        
         <MobileSearchAndFilter 
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
