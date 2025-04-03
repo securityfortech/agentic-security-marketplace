@@ -31,13 +31,7 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
             </div>
             <div className="flex p-4">
               <Avatar className="h-14 w-14 rounded-md mr-3 flex-shrink-0 -mt-8 border-4 border-background">
-                {agent.avatar ? (
-                  <AvatarImage src={agent.avatar} alt={agent.name} />
-                ) : (
-                  <AvatarFallback className="rounded-md bg-secondary text-secondary-foreground">
-                    {agent.name.substring(0, 2).toUpperCase()}
-                  </AvatarFallback>
-                )}
+                <div style={{ background: agent.image }} className="w-full h-full rounded-md"></div>
               </Avatar>
               
               <div className="flex flex-col min-w-0">
