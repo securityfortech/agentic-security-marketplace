@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Bell, User, Settings, LogOut } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
@@ -26,16 +25,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-card border-b border-border h-16 flex items-center px-4 lg:px-6">
-      <div className="flex-1 flex items-center justify-between w-full">
-        <div className="flex items-center space-x-2">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold">AS</span>
-            </div>
-            <span className="font-bold text-xl hidden md:inline-block">Agentic Security</span>
-          </Link>
-        </div>
-
+      <div className="flex-1 flex items-center justify-end w-full">
         <div className="flex items-center space-x-4">
           <Button variant="ghost" size="icon" className="text-foreground">
             <Bell className="h-5 w-5" />
