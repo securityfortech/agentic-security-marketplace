@@ -27,7 +27,7 @@ const AgentCategories = ({ filteredAgents, onHireAgent }: AgentCategoriesProps) 
     <>
       {featuredAgents.length > 0 && (
         <AgentCategory 
-          title="For you" 
+          title="Recommended" 
           agents={featuredAgents}
           onHire={onHireAgent}
         />
@@ -35,7 +35,7 @@ const AgentCategories = ({ filteredAgents, onHireAgent }: AgentCategoriesProps) 
       
       {securityAgents.length > 0 && (
         <AgentCategory 
-          title="Featured" 
+          title="Specialist Agents" 
           agents={securityAgents}
           onHire={onHireAgent}
         />
@@ -43,7 +43,7 @@ const AgentCategories = ({ filteredAgents, onHireAgent }: AgentCategoriesProps) 
       
       {popularAgents.length > 0 && (
         <AgentCategory 
-          title="Popular" 
+          title="Most Engaged" 
           agents={popularAgents}
           onHire={onHireAgent}
         />
@@ -51,7 +51,7 @@ const AgentCategories = ({ filteredAgents, onHireAgent }: AgentCategoriesProps) 
       
       {networkAgents.length > 0 && (
         <AgentCategory 
-          title="Trending" 
+          title="Network Solutions" 
           agents={networkAgents}
           onHire={onHireAgent}
         />
