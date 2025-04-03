@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
@@ -7,20 +7,52 @@ import { Input } from '@/components/ui/input';
 import { marketplaceAgents } from '@/components/marketplace/marketplaceData';
 import AgentCategory from '@/components/marketplace/AgentCategory';
 import { useAuth } from '@/contexts/AuthContext';
+import AgentFilter from '@/components/agents/AgentFilter';
+import { useAgentFilter } from '@/hooks/use-agent-filter';
+import { useToast } from '@/hooks/use-toast';
 
 const CharacterHomepage = () => {
   const { user } = useAuth();
+  const { toast } = useToast();
   
-  // Organize agents into categories
-  const featuredAgents = marketplaceAgents.filter(agent => agent.featured).slice(0, 4);
-  const securityAgents = marketplaceAgents.filter(agent => agent.category === 'Security').slice(0, 4);
-  const networkAgents = marketplaceAgents.filter(agent => agent.category === 'Network').slice(0, 4);
-  const popularAgents = [...marketplaceAgents].sort((a, b) => b.interactions - a.interactions).slice(0, 4);
+  // Use the agent filter hook
+  const {
+    searchTerm,
+    selectedTypes,
+    setSearchTerm,
+    handleTypeSelect,
+    handleTypeClear,
+    filteredAgents
+  } = useAgentFilter(marketplaceAgents);
+  
+  // Function to handle mobile search display
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
+  
+  // Handle hiring an agent
+  const handleHireAgent = (agent: any) => {
+    if (!user) {
+      toast({
+        title: "Authentication Required",
+        description: "Please sign in or create an account to hire agents.",
+      });
+    } else {
+      toast({
+        title: "Agent Hired",
+        description: `${agent.name} has been added to your team.`,
+      });
+    }
+  };
+  
+  // Organize filtered agents into categories
+  const featuredAgents = filteredAgents.filter(agent => agent.featured).slice(0, 4);
+  const securityAgents = filteredAgents.filter(agent => agent.category === 'Security').slice(0, 4);
+  const networkAgents = filteredAgents.filter(agent => agent.category === 'Network').slice(0, 4);
+  const popularAgents = [...filteredAgents].sort((a, b) => b.interactions - a.interactions).slice(0, 4);
   
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-card border-b border-border">
+      <header className="bg-card border-b border-border sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
@@ -36,6 +68,8 @@ const CharacterHomepage = () => {
                 <Input
                   placeholder="Search agents..."
                   className="pl-10 w-full"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
             </div>
@@ -62,37 +96,89 @@ const CharacterHomepage = () => {
       
       {/* Main content */}
       <main className="container mx-auto px-4 py-8">
-        <div className="md:hidden mb-6 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input
-            placeholder="Search agents..."
-            className="pl-10 w-full"
-          />
+        {/* Filter section (always visible) */}
+        <div className="mb-6">
+          <div className="md:hidden mb-4 relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search agents..."
+              className="pl-10 w-full"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          
+          {/* Agent type filter */}
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-sm font-medium">Filter by type</p>
+              {selectedTypes.length > 0 && (
+                <Button variant="ghost" size="sm" onClick={handleTypeClear} className="h-auto py-1 px-2 text-xs">
+                  Clear filters
+                </Button>
+              )}
+            </div>
+            
+            <div className="flex flex-wrap gap-2">
+              {['Security', 'Network', 'Monitoring', 'Response', 'Prevention'].map((type) => (
+                <Button 
+                  key={type} 
+                  variant={selectedTypes.includes(type) ? "default" : "outline"} 
+                  className="rounded-full text-xs h-8"
+                  onClick={() => handleTypeSelect(type)}
+                >
+                  {type}
+                </Button>
+              ))}
+            </div>
+          </div>
         </div>
         
-        {/* For you section */}
-        <AgentCategory 
-          title="For you" 
-          agents={featuredAgents} 
-        />
-        
-        {/* Featured section */}
-        <AgentCategory 
-          title="Featured" 
-          agents={securityAgents} 
-        />
-        
-        {/* Popular section */}
-        <AgentCategory 
-          title="Popular" 
-          agents={popularAgents} 
-        />
-        
-        {/* Trending section */}
-        <AgentCategory 
-          title="Trending" 
-          agents={networkAgents} 
-        />
+        {/* Check if we have any results from the filter */}
+        {filteredAgents.length === 0 ? (
+          <div className="text-center py-12">
+            <h3 className="text-xl font-semibold mb-2">No agents found</h3>
+            <p className="text-muted-foreground">Try adjusting your search or filters</p>
+          </div>
+        ) : (
+          <>
+            {/* For you section */}
+            {featuredAgents.length > 0 && (
+              <AgentCategory 
+                title="For you" 
+                agents={featuredAgents}
+                onHire={handleHireAgent}
+              />
+            )}
+            
+            {/* Featured section */}
+            {securityAgents.length > 0 && (
+              <AgentCategory 
+                title="Featured" 
+                agents={securityAgents}
+                onHire={handleHireAgent}
+              />
+            )}
+            
+            {/* Popular section */}
+            {popularAgents.length > 0 && (
+              <AgentCategory 
+                title="Popular" 
+                agents={popularAgents}
+                onHire={handleHireAgent}
+              />
+            )}
+            
+            {/* Trending section */}
+            {networkAgents.length > 0 && (
+              <AgentCategory 
+                title="Trending" 
+                agents={networkAgents}
+                onHire={handleHireAgent}
+              />
+            )}
+          </>
+        )}
         
         {/* Categories section */}
         <div className="mt-12">
