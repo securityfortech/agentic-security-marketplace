@@ -26,7 +26,7 @@ const HomepageHeader = () => {
   };
 
   return (
-    <header className="bg-background py-4 border-b border-border">
+    <header className={`${user ? 'bg-card' : 'bg-background'} py-4 border-b border-border ${user ? 'h-16 flex items-center' : ''}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
