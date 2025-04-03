@@ -38,7 +38,7 @@ const AgentFilter: React.FC<AgentFilterProps> = ({
       <div className="relative">
         <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
         <Input
-          placeholder="Search agents..."
+          placeholder="Search agents by name, description or features..."
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
           className="pl-10"
@@ -47,7 +47,7 @@ const AgentFilter: React.FC<AgentFilterProps> = ({
       
       <div>
         <div className="flex items-center justify-between mb-2">
-          <p className="text-sm font-medium">Filter by type</p>
+          <p className="text-sm font-medium">Filter by security domain</p>
           {selectedTypes.length > 0 && (
             <Button variant="ghost" size="sm" onClick={onTypeClear} className="h-auto py-1 px-2 text-xs">
               Clear filters

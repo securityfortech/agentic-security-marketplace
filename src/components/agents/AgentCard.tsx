@@ -15,10 +15,15 @@ export interface Agent {
   name: string;
   description: string;
   type: string;
-  skills: AgentSkill[];
-  price: string;
+  skills?: AgentSkill[];
+  price: string | number;
   status?: 'active' | 'inactive' | 'warning' | 'error';
   image?: string;
+  features?: string[];
+  featured?: boolean;
+  creator?: string;
+  interactions?: number;
+  category?: string;
 }
 
 interface AgentCardProps {
@@ -55,9 +60,15 @@ const AgentCard: React.FC<AgentCardProps> = ({
         <p className="text-sm text-muted-foreground mt-2 mb-4">{agent.description}</p>
         
         <div className="flex flex-wrap gap-2 mb-4">
-          {agent.skills.map((skill) => (
+          {agent.skills && agent.skills.map((skill) => (
             <Badge key={skill.name} variant="secondary" className="text-xs">
               {skill.name} - {skill.level}
+            </Badge>
+          ))}
+          
+          {agent.features && agent.features.map((feature, index) => (
+            <Badge key={index} variant="secondary" className="text-xs">
+              {feature}
             </Badge>
           ))}
         </div>
@@ -73,7 +84,7 @@ const AgentCard: React.FC<AgentCardProps> = ({
       </CardContent>
       <CardFooter className="p-4 pt-0 flex justify-between items-center">
         <div className="text-sm font-medium">
-          <span className="text-muted-foreground">Cost:</span> {agent.price}/hr
+          <span className="text-muted-foreground">Cost:</span> ${typeof agent.price === 'number' ? agent.price : agent.price}/hr
         </div>
         
         {isHired ? (

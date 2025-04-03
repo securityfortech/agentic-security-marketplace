@@ -23,7 +23,10 @@ export function useAgentFilter(agents: Agent[]) {
                         selectedTypes.includes(agent.type);
     
     const matchesSearch = agent.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          agent.description.toLowerCase().includes(searchTerm.toLowerCase());
+                          agent.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          (agent.features && agent.features.some(feature => 
+                            feature.toLowerCase().includes(searchTerm.toLowerCase())
+                          ));
     
     return matchesType && matchesSearch;
   });
