@@ -20,7 +20,7 @@ const AgentBadge = ({
   return (
     <Badge 
       variant={variant} 
-      className={`${sizeClass} rounded-md ${className}`}
+      className={`${sizeClass} rounded-full px-3 ${className}`}
     >
       {text}
     </Badge>

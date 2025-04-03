@@ -28,7 +28,7 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
                 <h3 className="font-semibold text-base truncate">{agent.name}</h3>
                 <p className="text-xs text-muted-foreground truncate">By @{agent.creator}</p>
                 <div className="flex gap-2 mt-1">
-                  <AgentBadge text={agent.category} variant="outline" />
+                  {/* Only show the type badge which corresponds to the filterable type */}
                   <AgentBadge text={agent.type} variant="secondary" />
                 </div>
               </div>
