@@ -1,21 +1,15 @@
 
 import React from 'react';
-import { Search } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { agentTypes } from '@/components/agents/AgentFilter';
+import { Button } from '@/components/ui/button';
 
 interface MobileSearchAndFilterProps {
-  searchTerm: string;
-  setSearchTerm: (value: string) => void;
   selectedTypes: string[];
   handleTypeSelect: (type: string) => void;
   handleTypeClear: () => void;
 }
 
 const MobileSearchAndFilter = ({
-  searchTerm,
-  setSearchTerm,
   selectedTypes,
   handleTypeSelect,
   handleTypeClear
@@ -46,21 +40,10 @@ const MobileSearchAndFilter = ({
             ))}
           </div>
         </div>
-        
-        <div className="md:w-64 lg:w-80">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search agents..."
-              className="pl-10 w-full"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-        </div>
       </div>
     </div>
   );
 };
 
 export default MobileSearchAndFilter;
+

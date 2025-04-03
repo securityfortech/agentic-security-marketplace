@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Agent } from '@/components/marketplace/marketplaceData';
 
 export function useAgentFilter(agents: Agent[]) {
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   
   const handleTypeSelect = (type: string) => {
@@ -19,21 +18,17 @@ export function useAgentFilter(agents: Agent[]) {
   };
   
   const filteredAgents = agents.filter((agent) => {
-    const matchesSearch = agent.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          agent.description.toLowerCase().includes(searchTerm.toLowerCase());
-    
     const matchesType = selectedTypes.length === 0 || 
                         selectedTypes.includes(agent.type);
     
-    return matchesSearch && matchesType;
+    return matchesType;
   });
 
   return {
-    searchTerm,
     selectedTypes,
-    setSearchTerm,
     handleTypeSelect,
     handleTypeClear,
     filteredAgents
   };
 }
+

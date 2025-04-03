@@ -12,22 +12,16 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
 const CharacterHomepage = () => {
-  const {
-    user
-  } = useAuth();
-  const {
-    toast
-  } = useToast();
+  const { user } = useAuth();
+  const { toast } = useToast();
   const navigate = useNavigate();
+  
   const {
-    searchTerm,
     selectedTypes,
-    setSearchTerm,
     handleTypeSelect,
     handleTypeClear,
     filteredAgents
   } = useAgentFilter(marketplaceAgents);
-  const [showMobileSearch, setShowMobileSearch] = useState(false);
 
   const handleHireAgent = (agent: any) => {
     if (!user) {
@@ -45,7 +39,7 @@ const CharacterHomepage = () => {
   };
   
   return <div className="min-h-screen bg-background">
-      <HomepageHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <HomepageHeader />
       
       {!user && <div className="bg-gradient-to-r from-primary/10 to-purple-500/10 py-12 border-b border-border">
           <div className="container mx-auto px-4 text-center">
@@ -59,8 +53,6 @@ const CharacterHomepage = () => {
       
       <main className="container mx-auto px-4 py-8">
         <MobileSearchAndFilter 
-          searchTerm={searchTerm} 
-          setSearchTerm={setSearchTerm} 
           selectedTypes={selectedTypes} 
           handleTypeSelect={handleTypeSelect} 
           handleTypeClear={handleTypeClear} 
@@ -74,3 +66,4 @@ const CharacterHomepage = () => {
 };
 
 export default CharacterHomepage;
+
