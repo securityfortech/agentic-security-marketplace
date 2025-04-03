@@ -6,13 +6,17 @@ import Benefits from '@/components/landing/Benefits';
 import CTA from '@/components/landing/CTA';
 import Footer from '@/components/landing/Footer';
 import LandingHeader from '@/components/landing/LandingHeader';
+import HomepageHeader from '@/components/character-homepage/HomepageHeader';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Index = () => {
+  const { user } = useAuth();
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-gradient-to-br from-background to-card border-b border-border">
         <div className="container mx-auto px-4 py-6 md:py-8 max-w-6xl">
-          <LandingHeader />
+          {user ? <HomepageHeader /> : <LandingHeader />}
           <Hero />
         </div>
       </header>
