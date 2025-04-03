@@ -30,10 +30,13 @@ const AgentHireHandler: React.FC<AgentHireHandlerProps> = ({
   };
 
   return (
-    <AgentList 
-      agents={agents}
-      onHire={handleHireAgent}
-    />
+    <div className="mt-6">
+      <h2 className="text-xl font-semibold mb-4">Available Agents</h2>
+      <AgentList 
+        agents={agents}
+        onHire={handleHireAgent}
+      />
+    </div>
   );
 };
 
