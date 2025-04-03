@@ -8,7 +8,6 @@ import HomepageHeader from '@/components/character-homepage/HomepageHeader';
 import HomepageFooter from '@/components/character-homepage/HomepageFooter';
 import MobileSearchAndFilter from '@/components/character-homepage/MobileSearchAndFilter';
 import AgentCategories from '@/components/character-homepage/AgentCategories';
-import AgentSpotlight from '@/components/character-homepage/AgentSpotlight';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
@@ -44,9 +43,6 @@ const CharacterHomepage = () => {
       });
     }
   };
-
-  // Get featured agents for spotlight section
-  const featuredAgents = marketplaceAgents.filter(agent => agent.featured).slice(0, 3);
   
   return <div className="min-h-screen bg-background">
       <HomepageHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
@@ -69,8 +65,6 @@ const CharacterHomepage = () => {
           handleTypeSelect={handleTypeSelect} 
           handleTypeClear={handleTypeClear} 
         />
-        
-        {featuredAgents.length > 0 && <AgentSpotlight agents={featuredAgents} onHireAgent={handleHireAgent} />}
         
         <AgentCategories filteredAgents={filteredAgents} onHireAgent={handleHireAgent} />
       </main>
