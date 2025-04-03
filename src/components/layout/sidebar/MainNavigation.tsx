@@ -18,15 +18,7 @@ interface MainNavigationProps {
 const MainNavigation = ({ pathname }: MainNavigationProps) => {
   const mainNavItems = [
     { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
-    { 
-      icon: ShoppingBag, 
-      label: "Marketplace", 
-      path: "/", 
-      subItems: [
-        { label: "Marketplace", path: "/" },
-        { label: "Usage", path: "/marketplace/usage" }
-      ]
-    },
+    { icon: ShoppingBag, label: "Marketplace", path: "/" },
     { icon: Bot, label: "Your Agents", path: "/your-agents" },
     { icon: Activity, label: "Activity", path: "/activity" },
   ];
@@ -39,14 +31,28 @@ const MainNavigation = ({ pathname }: MainNavigationProps) => {
           icon={item.icon}
           label={item.label}
           path={item.path}
-          isActive={
-            item.subItems 
-              ? pathname === item.path || item.subItems.some(subItem => pathname === subItem.path)
-              : pathname === item.path
-          }
-          subItems={item.subItems}
+          isActive={pathname === item.path}
         />
       ))}
+
+      {/* Marketplace Section */}
+      <div className="mt-4">
+        <p className="text-xs font-medium text-sidebar-foreground/60 mb-3 pl-3">Marketplace</p>
+        <div className="flex flex-col gap-1">
+          <SidebarItem 
+            icon={ShoppingBag}
+            label="Marketplace"
+            path="/"
+            isActive={pathname === "/"}
+          />
+          <SidebarItem 
+            icon={BarChart}
+            label="Usage"
+            path="/marketplace/usage"
+            isActive={pathname === "/marketplace/usage"}
+          />
+        </div>
+      </div>
     </nav>
   );
 };
