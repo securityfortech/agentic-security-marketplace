@@ -14,7 +14,6 @@ export interface Agent {
   avatar?: string;
   status: 'active' | 'inactive';
   features: string[];
-  featured?: boolean;
   creator?: string;
   interactions: number;
   type: string;
