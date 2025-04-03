@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useAgentFilter } from '@/hooks/use-agent-filter';
@@ -10,12 +9,14 @@ import MobileSearchAndFilter from '@/components/character-homepage/MobileSearchA
 import AgentCategories from '@/components/character-homepage/AgentCategories';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-
 const CharacterHomepage = () => {
-  const { user } = useAuth();
-  const { toast } = useToast();
+  const {
+    user
+  } = useAuth();
+  const {
+    toast
+  } = useToast();
   const navigate = useNavigate();
-  
   const {
     searchTerm,
     setSearchTerm,
@@ -24,7 +25,6 @@ const CharacterHomepage = () => {
     handleTypeClear,
     filteredAgents
   } = useAgentFilter(marketplaceAgents);
-
   const handleHireAgent = (agent: any) => {
     if (!user) {
       toast({
@@ -39,14 +39,13 @@ const CharacterHomepage = () => {
       });
     }
   };
-  
   return <div className="min-h-screen bg-background">
       <HomepageHeader />
       
       {!user && <div className="bg-gradient-to-r from-primary/10 to-purple-500/10 py-12 border-b border-border">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl font-bold mb-6">Meet your AI Security Agents</h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Deploy specialized cybersecurity agents designed to defend your organization from cyber threats and handle routine security tasks with precision.</p>
+            <h1 className="text-4xl font-bold mb-6">Meet your Agentic Cybersecurity Team</h1>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Deploy expert autonomous cybersecurity agents to proactively defend your organization and seamlessly automate routine security operations with precision.</p>
             <Button onClick={() => navigate('/signup')} size="lg" className="rounded-full font-medium">
               Get Started
             </Button>
@@ -54,13 +53,7 @@ const CharacterHomepage = () => {
         </div>}
       
       <main className="container mx-auto px-4 py-8">
-        <MobileSearchAndFilter 
-          selectedTypes={selectedTypes} 
-          handleTypeSelect={handleTypeSelect} 
-          handleTypeClear={handleTypeClear}
-          searchTerm={searchTerm}
-          onSearchChange={setSearchTerm}
-        />
+        <MobileSearchAndFilter selectedTypes={selectedTypes} handleTypeSelect={handleTypeSelect} handleTypeClear={handleTypeClear} searchTerm={searchTerm} onSearchChange={setSearchTerm} />
         
         <AgentCategories filteredAgents={filteredAgents} onHireAgent={handleHireAgent} />
       </main>
@@ -68,5 +61,4 @@ const CharacterHomepage = () => {
       <HomepageFooter />
     </div>;
 };
-
 export default CharacterHomepage;
