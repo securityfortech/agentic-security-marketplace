@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useAgentFilter } from '@/hooks/use-agent-filter';
 import { useToast } from '@/hooks/use-toast';
@@ -17,6 +17,8 @@ const CharacterHomepage = () => {
   const navigate = useNavigate();
   
   const {
+    searchTerm,
+    setSearchTerm,
     selectedTypes,
     handleTypeSelect,
     handleTypeClear,
@@ -55,7 +57,9 @@ const CharacterHomepage = () => {
         <MobileSearchAndFilter 
           selectedTypes={selectedTypes} 
           handleTypeSelect={handleTypeSelect} 
-          handleTypeClear={handleTypeClear} 
+          handleTypeClear={handleTypeClear}
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
         />
         
         <AgentCategories filteredAgents={filteredAgents} onHireAgent={handleHireAgent} />
@@ -66,4 +70,3 @@ const CharacterHomepage = () => {
 };
 
 export default CharacterHomepage;
-
