@@ -1,30 +1,10 @@
+
 import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Bot, Shield } from 'lucide-react';
 import { Agent, AgentSkill } from '@/data/agents/types';
-
-export interface AgentSkill {
-  name: string;
-  level: 'beginner' | 'intermediate' | 'expert';
-}
-
-export interface Agent {
-  id: string;
-  name: string;
-  description: string;
-  type: string;
-  skills?: AgentSkill[];
-  price: string | number;
-  status?: 'active' | 'inactive' | 'warning' | 'error';
-  image?: string;
-  features?: string[];
-  featured?: boolean;
-  creator?: string;
-  interactions?: number;
-  category?: string;
-}
 
 interface AgentCardProps {
   agent: Agent;
