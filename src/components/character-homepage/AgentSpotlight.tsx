@@ -1,19 +1,21 @@
+
 import React from 'react';
 import { Agent } from '@/components/agents/AgentCard';
 import { Button } from '@/components/ui/button';
 import { Avatar } from '@/components/ui/avatar';
 import { Shield, MessageCircle } from 'lucide-react';
+
 interface AgentSpotlightProps {
   agents: Agent[];
   onHireAgent: (agent: Agent) => void;
 }
+
 const AgentSpotlight = ({
   agents,
   onHireAgent
 }: AgentSpotlightProps) => {
-  return <section className="mb-12">
-      <h2 className="text-2xl font-bold mb-6">Featured</h2>
-      
+  return (
+    <section className="mb-12">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {agents.map(agent => <div key={agent.id} className="relative overflow-hidden bg-card rounded-xl border border-border hover:border-primary/30 transition-all duration-300 flex flex-col h-full">
             {agent.featured && <div className="absolute top-3 right-3 bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-medium flex items-center">
@@ -49,6 +51,8 @@ const AgentSpotlight = ({
             </div>
           </div>)}
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default AgentSpotlight;

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useAgentFilter } from '@/hooks/use-agent-filter';
@@ -10,6 +11,7 @@ import AgentCategories from '@/components/character-homepage/AgentCategories';
 import AgentSpotlight from '@/components/character-homepage/AgentSpotlight';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+
 const CharacterHomepage = () => {
   const {
     user
@@ -27,6 +29,7 @@ const CharacterHomepage = () => {
     filteredAgents
   } = useAgentFilter(marketplaceAgents);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
+
   const handleHireAgent = (agent: any) => {
     if (!user) {
       toast({
@@ -44,6 +47,7 @@ const CharacterHomepage = () => {
 
   // Get featured agents for spotlight section
   const featuredAgents = marketplaceAgents.filter(agent => agent.featured).slice(0, 3);
+  
   return <div className="min-h-screen bg-background">
       <HomepageHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       
@@ -58,9 +62,15 @@ const CharacterHomepage = () => {
         </div>}
       
       <main className="container mx-auto px-4 py-8">
-        {featuredAgents.length > 0 && <AgentSpotlight agents={featuredAgents} onHireAgent={handleHireAgent} />}
+        <MobileSearchAndFilter 
+          searchTerm={searchTerm} 
+          setSearchTerm={setSearchTerm} 
+          selectedTypes={selectedTypes} 
+          handleTypeSelect={handleTypeSelect} 
+          handleTypeClear={handleTypeClear} 
+        />
         
-        <MobileSearchAndFilter searchTerm={searchTerm} setSearchTerm={setSearchTerm} selectedTypes={selectedTypes} handleTypeSelect={handleTypeSelect} handleTypeClear={handleTypeClear} />
+        {featuredAgents.length > 0 && <AgentSpotlight agents={featuredAgents} onHireAgent={handleHireAgent} />}
         
         <AgentCategories filteredAgents={filteredAgents} onHireAgent={handleHireAgent} />
       </main>
@@ -68,4 +78,5 @@ const CharacterHomepage = () => {
       <HomepageFooter />
     </div>;
 };
+
 export default CharacterHomepage;
