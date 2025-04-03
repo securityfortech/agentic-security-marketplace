@@ -11,7 +11,6 @@ interface AgentCategoriesProps {
 const AgentCategories = ({ filteredAgents, onHireAgent }: AgentCategoriesProps) => {
   const featuredAgents = filteredAgents.filter(agent => agent.featured).slice(0, 4);
   const securityAgents = filteredAgents.filter(agent => agent.category === 'Security').slice(0, 4);
-  const networkAgents = filteredAgents.filter(agent => agent.category === 'Network').slice(0, 4);
   const popularAgents = [...filteredAgents].sort((a, b) => b.interactions - a.interactions).slice(0, 4);
   
   if (filteredAgents.length === 0) {
@@ -45,14 +44,6 @@ const AgentCategories = ({ filteredAgents, onHireAgent }: AgentCategoriesProps) 
         <AgentCategory 
           title="Most Engaged" 
           agents={popularAgents}
-          onHire={onHireAgent}
-        />
-      )}
-      
-      {networkAgents.length > 0 && (
-        <AgentCategory 
-          title="Network Solutions" 
-          agents={networkAgents}
           onHire={onHireAgent}
         />
       )}
