@@ -6,13 +6,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 export const agentTypes = [
-  "IT",
-  "Compliance", 
-  "Pentest", 
-  "Response", 
-  "Awareness",
-  "Threat Hunting",
-  "OSINT"
+  "Offensive Security & Pentesting",
+  "Vulnerability Management",
+  "Cloud Security",
+  "Application Security (AppSec)",
+  "Governance, Risk & Compliance (GRC)",
+  "Security Operations (SecOps)",
+  "Identity & Access Management (IAM)",
+  "Asset, Infrastructure & Network Security",
+  "Threat Intelligence & Detection",
+  "Automation, Reporting & Assistive Agents"
 ];
 
 interface AgentFilterProps {

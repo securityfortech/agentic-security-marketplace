@@ -1,3 +1,4 @@
+
 export interface Agent {
   id: string;
   name: string;
@@ -10,11 +11,11 @@ export interface Agent {
   featured?: boolean;
   creator?: string;
   interactions: number;
-  type: string; // Adding type property for filtering
-  image: string; // Adding colorful image for each agent
+  type: string; // Using more detailed security categories
+  image: string; // Colorful image for each agent
 }
 
-// Updated data with new fields
+// Updated data with new types
 export const marketplaceAgents: Agent[] = [
   {
     id: '1',
@@ -27,7 +28,7 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'securitylab',
     interactions: 317500,
-    type: 'IT',
+    type: 'Asset, Infrastructure & Network Security',
     image: 'linear-gradient(135deg, #6E59A5, #9b87f5)',
     features: [
       'Real-time traffic analysis',
@@ -47,7 +48,7 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'firewallpro',
     interactions: 64800,
-    type: 'Response',
+    type: 'Security Operations (SecOps)',
     image: 'linear-gradient(180deg, #F97316, #FDE1D3)',
     features: [
       'Firewall integration',
@@ -66,7 +67,7 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'dataguard',
     interactions: 128000,
-    type: 'Compliance',
+    type: 'Governance, Risk & Compliance (GRC)',
     image: 'linear-gradient(90deg, #0EA5E9, #D3E4FD)',
     features: [
       'Data encryption',
@@ -86,7 +87,7 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'threatintel',
     interactions: 482100,
-    type: 'Pentest',
+    type: 'Offensive Security & Pentesting',
     image: 'linear-gradient(39, 100%, 77%, 1) 0%, hsla(22, 90%, 57%, 1) 100%)',
     features: [
       'Advanced threat detection',
@@ -105,7 +106,7 @@ export const marketplaceAgents: Agent[] = [
     status: 'inactive',
     creator: 'regulatorypro',
     interactions: 56600,
-    type: 'Compliance',
+    type: 'Governance, Risk & Compliance (GRC)',
     image: 'linear-gradient(to right, #ee9ca7, #ffdde2)',
     features: [
       'Compliance reporting',
@@ -125,7 +126,7 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'incidentteam',
     interactions: 98700,
-    type: 'Response',
+    type: 'Security Operations (SecOps)',
     image: 'linear-gradient(90deg, hsla(59, 86%, 68%, 1) 0%, hsla(134, 36%, 53%, 1) 100%)',
     features: [
       'Automated response',
@@ -144,7 +145,7 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'securityscan',
     interactions: 204300,
-    type: 'Pentest',
+    type: 'Vulnerability Management',
     image: 'linear-gradient(to top, #d299c2 0%, #fef9d7 100%)',
     features: [
       'Automated scanning',
@@ -163,7 +164,7 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'endpointdef',
     interactions: 187000,
-    type: 'Awareness',
+    type: 'Asset, Infrastructure & Network Security',
     image: 'linear-gradient(90deg, hsla(277, 75%, 84%, 1) 0%, hsla(297, 50%, 51%, 1) 100%)',
     features: [
       'Anti-malware',
@@ -183,7 +184,7 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'threatintel',
     interactions: 276500,
-    type: 'OSINT',
+    type: 'Threat Intelligence & Detection',
     image: 'linear-gradient(135deg, #3a7bd5, #00d2ff)',
     features: [
       'Social media monitoring',
@@ -202,7 +203,7 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'securityshield',
     interactions: 198400,
-    type: 'Response',
+    type: 'Security Operations (SecOps)',
     image: 'linear-gradient(90deg, #FF416C, #FF4B2B)',
     features: [
       'Behavior-based detection',
@@ -222,7 +223,7 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'securityedu',
     interactions: 342100,
-    type: 'Awareness',
+    type: 'Automation, Reporting & Assistive Agents',
     image: 'linear-gradient(to right, #6a11cb, #2575fc)',
     features: [
       'Phishing simulations',
@@ -241,7 +242,7 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'compliance360',
     interactions: 124700,
-    type: 'Compliance',
+    type: 'Governance, Risk & Compliance (GRC)',
     image: 'linear-gradient(45deg, #2E3192, #1BFFFF)',
     features: [
       'Policy monitoring',
@@ -261,7 +262,7 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'huntexperts',
     interactions: 385200,
-    type: 'Threat Hunting',
+    type: 'Threat Intelligence & Detection',
     image: 'linear-gradient(90deg, #3F2B96, #A8C0FF)',
     features: [
       'Behavior analytics',
@@ -280,7 +281,7 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'websec',
     interactions: 215600,
-    type: 'Pentest',
+    type: 'Application Security (AppSec)',
     image: 'linear-gradient(to bottom right, #00F260, #0575E6)',
     features: [
       'OWASP Top 10 checks',
@@ -299,7 +300,7 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'privacyshield',
     interactions: 167800,
-    type: 'Compliance',
+    type: 'Governance, Risk & Compliance (GRC)',
     image: 'linear-gradient(to top left, #FF5E62, #FF9966)',
     features: [
       'PII scanning',
@@ -319,7 +320,7 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'emailsec',
     interactions: 294500,
-    type: 'Awareness',
+    type: 'Security Operations (SecOps)',
     image: 'linear-gradient(to right, #8E2DE2, #4A00E0)',
     features: [
       'Email filtering',
@@ -338,7 +339,7 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'darkwatcher',
     interactions: 165300,
-    type: 'OSINT',
+    type: 'Threat Intelligence & Detection',
     image: 'linear-gradient(45deg, #283048, #859398)',
     features: [
       'Credentials monitoring',
@@ -357,7 +358,7 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'clouddefend',
     interactions: 231000,
-    type: 'IT',
+    type: 'Cloud Security',
     image: 'linear-gradient(to top, #30cfd0, #330867)',
     features: [
       'Cloud posture management',
