@@ -6,11 +6,43 @@ import { Avatar } from '@/components/ui/avatar';
 import { MessageCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
+import { 
+  Shield, Database, Lock, Code, FileText, 
+  CloudRain, Network, Activity, Zap, Bot
+} from 'lucide-react';
 
 interface AgentCategoriesProps {
   filteredAgents: Agent[];
   onHireAgent: (agent: Agent) => void;
 }
+
+// Function to determine icon based on agent type
+const getAgentIcon = (type: string) => {
+  switch (true) {
+    case type.includes('Offensive Security'):
+      return <Shield className="h-4 w-4 text-white" />;
+    case type.includes('Cloud Security'):
+      return <CloudRain className="h-4 w-4 text-white" />;
+    case type.includes('Application Security'):
+      return <Code className="h-4 w-4 text-white" />;
+    case type.includes('Governance'):
+      return <FileText className="h-4 w-4 text-white" />;
+    case type.includes('Operations'):
+      return <Activity className="h-4 w-4 text-white" />;
+    case type.includes('Identity'):
+      return <Lock className="h-4 w-4 text-white" />;
+    case type.includes('Network'):
+      return <Network className="h-4 w-4 text-white" />;
+    case type.includes('Intelligence'):
+      return <Zap className="h-4 w-4 text-white" />;
+    case type.includes('Automation'):
+      return <Bot className="h-4 w-4 text-white" />;
+    case type.includes('Vulnerability'):
+      return <Database className="h-4 w-4 text-white" />;
+    default:
+      return <Shield className="h-4 w-4 text-white" />;
+  }
+};
 
 const AgentCategories = ({ filteredAgents, onHireAgent }: AgentCategoriesProps) => {
   const featuredAgents = filteredAgents.filter(agent => agent.featured).slice(0, 8);
@@ -84,13 +116,19 @@ const CategorySection = ({ title, agents, onHireAgent, showLoadMore = false }: C
             className="bg-card rounded-lg border border-border hover:border-primary/30 transition-all duration-300 p-4 flex flex-col h-full shadow-sm hover:shadow-md"
           >
             <div className="flex items-start mb-3">
-              <Avatar className="h-12 w-12 rounded-lg border border-border">
-                {agent.image && (
-                  <div 
-                    style={{ backgroundImage: `url(${agent.image})` }} 
-                    className="w-full h-full rounded-lg bg-cover bg-center"
-                  />
-                )}
+              <Avatar className="h-12 w-12 rounded-lg border border-primary/20 flex items-center justify-center overflow-hidden">
+                <div 
+                  style={{ 
+                    background: agent.image || 'linear-gradient(90deg, #FF416C, #FF4B2B)', 
+                    width: '100%', 
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  {getAgentIcon(agent.type)}
+                </div>
               </Avatar>
               <div className="ml-3">
                 <h3 className="font-semibold text-sm line-clamp-1">{agent.name}</h3>
