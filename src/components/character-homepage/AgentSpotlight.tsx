@@ -3,7 +3,7 @@ import React from 'react';
 import { Agent } from '@/data/agents/types';
 import { Button } from '@/components/ui/button';
 import { Avatar } from '@/components/ui/avatar';
-import { Shield, MessageCircle } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface AgentSpotlightProps {
@@ -33,13 +33,6 @@ const AgentSpotlight = ({
             key={agent.id} 
             className="relative overflow-hidden bg-card rounded-xl border border-border hover:border-primary/30 transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-md"
           >
-            {agent.featured && (
-              <div className="absolute top-3 right-3 bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-medium flex items-center">
-                <Shield className="w-3 h-3 mr-1" />
-                Featured
-              </div>
-            )}
-            
             <div className="p-5 flex flex-col h-full">
               <div className="flex items-center mb-4">
                 <Avatar className="h-16 w-16 rounded-xl border-2 border-primary/20">
