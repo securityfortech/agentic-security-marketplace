@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -51,54 +52,6 @@
 
     --info: 225 70% 60%;
     --info-foreground: 0 0% 100%;
-  }
-
-  .light {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 262 83% 58%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 262 55% 45%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 262 83% 58%;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 262 83% 58%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 262 83% 58%;
-
-    --success: 142 72% 29%;
-    --success-foreground: 210 40% 98%;
-
-    --warning: 38 92% 50%;
-    --warning-foreground: 222.2 47.4% 11.2%;
-
-    --info: 217 91% 60%;
-    --info-foreground: 210 40% 98%;
   }
 
   .dark {
@@ -156,16 +109,17 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
 @layer components {
   .grid-card {
-    @apply p-6 bg-card rounded-lg border border-border shadow-sm;
+    @apply p-6 bg-card rounded-lg border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/30;
   }
   
   .agent-card {
-    @apply p-6 bg-card rounded-lg border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/50;
+    @apply bg-card rounded-lg border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/30;
   }
   
   .status-badge {
@@ -186,5 +140,52 @@
   
   .status-badge-error {
     @apply status-badge bg-destructive/20 text-destructive;
+  }
+  
+  /* Animation classes */
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  .fade-in {
+    @apply opacity-0 animate-[fadeIn_0.5s_ease-out_forwards];
+  }
+  
+  .slide-in {
+    @apply transform -translate-x-full animate-[slideIn_0.5s_ease-out_forwards];
+  }
+  
+  /* Glass effect */
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl;
+  }
+  
+  /* Gradient backgrounds */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary/80 to-primary;
+  }
+  
+  .gradient-card {
+    @apply bg-gradient-to-br from-card to-secondary/80 backdrop-blur-sm;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

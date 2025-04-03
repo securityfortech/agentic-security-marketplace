@@ -3,7 +3,9 @@ import React from 'react';
 import { Agent } from '@/data/agents/types';
 import { Button } from '@/components/ui/button';
 import { Avatar } from '@/components/ui/avatar';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, Shield } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
 
 interface AgentCategoriesProps {
   filteredAgents: Agent[];
@@ -17,7 +19,7 @@ const AgentCategories = ({ filteredAgents, onHireAgent }: AgentCategoriesProps) 
   
   if (filteredAgents.length === 0) {
     return (
-      <div className="text-center py-12">
+      <div className="text-center py-12 bg-card/50 rounded-lg border border-border">
         <h3 className="text-xl font-semibold mb-2">No agents found</h3>
         <p className="text-muted-foreground">Try adjusting your search or filters</p>
       </div>
@@ -44,7 +46,7 @@ const AgentCategories = ({ filteredAgents, onHireAgent }: AgentCategoriesProps) 
       
       {securityAgents.length > 0 && (
         <CategorySection 
-          title="All" 
+          title="All Agents" 
           agents={securityAgents}
           onHireAgent={onHireAgent}
           showLoadMore={true}
@@ -62,6 +64,16 @@ interface CategorySectionProps {
 }
 
 const CategorySection = ({ title, agents, onHireAgent, showLoadMore = false }: CategorySectionProps) => {
+  const { toast } = useToast();
+  
+  const handleHire = (agent: Agent) => {
+    onHireAgent(agent);
+    toast({
+      title: "Agent Deployed",
+      description: `${agent.name} has been added to your team.`,
+    });
+  };
+  
   return (
     <section className="mb-12">
       <h2 className="text-2xl font-bold mb-6">{title}</h2>
@@ -69,33 +81,42 @@ const CategorySection = ({ title, agents, onHireAgent, showLoadMore = false }: C
         {agents.map(agent => (
           <div 
             key={agent.id}
-            className="bg-card rounded-lg border border-border hover:border-primary/30 transition-all duration-200 p-4 flex flex-col"
+            className="bg-card rounded-lg border border-border hover:border-primary/30 transition-all duration-300 p-4 flex flex-col h-full shadow-sm hover:shadow-md"
           >
             <div className="flex items-start mb-3">
               <Avatar className="h-12 w-12 rounded-lg border border-border">
-                <div 
-                  style={{ background: agent.image }} 
-                  className="w-full h-full rounded-lg"
-                />
+                {agent.image && (
+                  <div 
+                    style={{ backgroundImage: `url(${agent.image})` }} 
+                    className="w-full h-full rounded-lg bg-cover bg-center"
+                  />
+                )}
               </Avatar>
               <div className="ml-3">
                 <h3 className="font-semibold text-sm line-clamp-1">{agent.name}</h3>
-                <p className="text-xs text-muted-foreground line-clamp-1">{agent.title}</p>
+                <p className="text-xs text-muted-foreground line-clamp-1">{agent.title || agent.type}</p>
               </div>
+              
+              {agent.featured && (
+                <Badge variant="outline" className="ml-auto text-xs font-medium flex items-center">
+                  <Shield className="w-3 h-3 mr-1" />
+                  Featured
+                </Badge>
+              )}
             </div>
             
-            <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
+            <p className="text-xs text-muted-foreground mb-3 line-clamp-2 flex-grow">
               {agent.description}
             </p>
             
-            <div className="flex items-center justify-between mt-auto">
+            <div className="flex items-center justify-between mt-auto pt-2 border-t border-border/30">
               <div className="flex items-center text-xs text-muted-foreground">
                 <MessageCircle className="w-3 h-3 mr-1" />
                 <span>{agent.interactions.toLocaleString()}</span>
               </div>
               
               <Button 
-                onClick={() => onHireAgent(agent)} 
+                onClick={() => handleHire(agent)} 
                 size="sm" 
                 variant="secondary"
                 className="rounded-full h-7 px-3 text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105"
