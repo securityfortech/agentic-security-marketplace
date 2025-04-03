@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Agent } from '@/data/agents/types';
 import { Button } from '@/components/ui/button';
@@ -46,8 +47,12 @@ const AgentSpotlight = ({
                   <span>{agent.interactions.toLocaleString()} chats</span>
                 </div>
                 
-                <Button onClick={() => onHireAgent(agent)} size="sm" className="rounded-full">
-                  Chat Now
+                <Button 
+                  onClick={() => onHireAgent(agent)} 
+                  size="sm" 
+                  className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105 hover:shadow-md"
+                >
+                  Deploy
                 </Button>
               </div>
             </div>

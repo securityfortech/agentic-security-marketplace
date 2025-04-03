@@ -67,10 +67,10 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
               <Button 
                 size="sm" 
                 variant="ghost" 
-                className="text-xs h-7 hover:bg-primary hover:text-primary-foreground"
+                className="text-xs h-7 hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105"
                 onClick={() => onHire?.(agent)}
               >
-                Hire
+                Deploy
               </Button>
             </div>
           </div>

@@ -44,9 +44,10 @@ const AgentCategories = ({ filteredAgents, onHireAgent }: AgentCategoriesProps) 
       
       {securityAgents.length > 0 && (
         <CategorySection 
-          title="Security Specialists" 
+          title="All" 
           agents={securityAgents}
           onHireAgent={onHireAgent}
+          showLoadMore={true}
         />
       )}
     </>
@@ -57,9 +58,10 @@ interface CategorySectionProps {
   title: string;
   agents: Agent[];
   onHireAgent: (agent: Agent) => void;
+  showLoadMore?: boolean;
 }
 
-const CategorySection = ({ title, agents, onHireAgent }: CategorySectionProps) => {
+const CategorySection = ({ title, agents, onHireAgent, showLoadMore = false }: CategorySectionProps) => {
   return (
     <section className="mb-12">
       <h2 className="text-2xl font-bold mb-6">{title}</h2>
@@ -96,14 +98,25 @@ const CategorySection = ({ title, agents, onHireAgent }: CategorySectionProps) =
                 onClick={() => onHireAgent(agent)} 
                 size="sm" 
                 variant="secondary"
-                className="rounded-full h-7 px-3 text-xs"
+                className="rounded-full h-7 px-3 text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105"
               >
-                Chat
+                Deploy
               </Button>
             </div>
           </div>
         ))}
       </div>
+      
+      {showLoadMore && (
+        <div className="flex justify-center mt-6">
+          <Button 
+            variant="ghost" 
+            className="text-muted-foreground hover:text-foreground opacity-70"
+          >
+            Load more...
+          </Button>
+        </div>
+      )}
     </section>
   );
 };
