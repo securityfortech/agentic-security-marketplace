@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Dashboard from "./pages/Dashboard";
-import Marketplace from "./pages/Marketplace";
 import YourAgents from "./pages/YourAgents";
 import Activity from "./pages/Activity";
 import Login from "./pages/Login";
@@ -14,7 +13,7 @@ import SignUp from "./pages/SignUp";
 import NotFound from "./pages/NotFound";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import PublicMarketplace from "./pages/PublicMarketplace";
+import Marketplace from "./pages/Marketplace";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +25,8 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<PublicMarketplace />} />
+            {/* Public Marketplace as the landing page */}
+            <Route path="/" element={<Marketplace isPublic={true} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             
@@ -46,7 +46,7 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <Marketplace />
+                    <Marketplace isPublic={false} />
                   </Layout>
                 </ProtectedRoute>
               } 
