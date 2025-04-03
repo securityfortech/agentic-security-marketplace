@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-card border-b border-border h-16 flex items-center px-4 lg:px-6">
+    <nav className="bg-transparent h-16 flex items-center px-4 lg:px-6">
       <div className="flex-1 flex items-center justify-end w-full">
         <div className="flex items-center space-x-4">
           <Button variant="ghost" size="icon" className="text-foreground">
