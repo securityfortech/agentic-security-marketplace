@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -103,7 +102,7 @@ const AgentCard: React.FC<AgentCardProps> = ({
       
       <CardFooter className="p-4 pt-0 flex justify-between items-center mt-auto border-t border-border/30">
         <div className="text-sm font-medium">
-          <span className="text-muted-foreground">Cost:</span> ${typeof agent.price === 'number' ? agent.price : agent.price}/hr
+          <span className="text-muted-foreground">Cost:</span> ${agent.price}/hr
         </div>
         
         {isHired ? (

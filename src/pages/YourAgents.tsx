@@ -21,8 +21,12 @@ const hiredAgents: Agent[] = [
       { name: 'Exploit Development', level: 'intermediate' },
       { name: 'Vulnerability Assessment', level: 'expert' }
     ],
-    price: '$125',
-    status: 'active'
+    price: 125,
+    status: 'active',
+    category: 'Security',
+    features: ['Penetration Testing', 'Network Scanning'],
+    interactions: 1240,
+    image: '/assets/agents/netprowler.jpg'
   },
   {
     id: '3',
@@ -34,8 +38,12 @@ const hiredAgents: Agent[] = [
       { name: 'Malware Deobfuscation', level: 'expert' },
       { name: 'Assembly Code Analysis', level: 'intermediate' }
     ],
-    price: '$165',
-    status: 'warning'
+    price: 165,
+    status: 'warning',
+    category: 'Security',
+    features: ['Binary Analysis', 'Malware Detection'],
+    interactions: 890,
+    image: '/assets/agents/bytehunter.jpg'
   },
   {
     id: '4',
@@ -47,8 +55,12 @@ const hiredAgents: Agent[] = [
       { name: 'Audit Documentation', level: 'intermediate' },
       { name: 'Gap Analysis', level: 'expert' }
     ],
-    price: '$110',
-    status: 'inactive'
+    price: 110,
+    status: 'inactive',
+    category: 'Compliance',
+    features: ['Regulatory Compliance', 'Audit Support'],
+    interactions: 675,
+    image: '/assets/agents/complianceguard.jpg'
   }
 ];
 

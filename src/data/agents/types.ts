@@ -12,7 +12,7 @@ export interface Agent {
   price: number;
   category: string;
   avatar?: string;
-  status: 'active' | 'inactive';
+  status: 'active' | 'inactive' | 'warning';
   features: string[];
   creator?: string;
   interactions: number;
