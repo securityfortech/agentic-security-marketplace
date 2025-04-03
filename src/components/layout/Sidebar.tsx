@@ -41,7 +41,7 @@ const Sidebar = () => {
 
   const mainNavItems = [
     { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
-    { icon: ShoppingBag, label: "Marketplace", path: "/marketplace" },
+    { icon: ShoppingBag, label: "Marketplace", path: "/" },
     { icon: Bot, label: "Your Agents", path: "/your-agents" },
     { icon: Activity, label: "Activity", path: "/activity" },
   ];

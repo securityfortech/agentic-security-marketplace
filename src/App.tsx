@@ -42,16 +42,6 @@ const App = () => (
               } 
             />
             <Route 
-              path="/marketplace" 
-              element={
-                <ProtectedRoute>
-                  <Layout>
-                    <Marketplace isPublic={false} />
-                  </Layout>
-                </ProtectedRoute>
-              } 
-            />
-            <Route 
               path="/your-agents" 
               element={
                 <ProtectedRoute>
