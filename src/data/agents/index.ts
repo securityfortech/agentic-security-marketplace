@@ -1,5 +1,5 @@
 
-import { Agent } from './types';
+import type { Agent } from './types';
 import { offensiveSecurityAgents } from './offensiveSecurity';
 import { vulnerabilityManagementAgents } from './vulnerabilityManagement';
 import { cloudSecurityAgents } from './cloudSecurity';

@@ -6,4 +6,4 @@ export {
   agentTypes,
   agentsByType
 } from '@/data/agents';
-export { Agent } from '@/data/agents/types';
+export type { Agent } from '@/data/agents/types';
