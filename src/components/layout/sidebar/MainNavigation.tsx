@@ -18,7 +18,6 @@ interface MainNavigationProps {
 const MainNavigation = ({ pathname }: MainNavigationProps) => {
   const mainNavItems = [
     { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
-    { icon: ShoppingBag, label: "Marketplace", path: "/" },
     { icon: Bot, label: "Your Agents", path: "/your-agents" },
     { icon: Activity, label: "Activity", path: "/activity" },
   ];
@@ -58,3 +57,4 @@ const MainNavigation = ({ pathname }: MainNavigationProps) => {
 };
 
 export default MainNavigation;
+
