@@ -44,7 +44,7 @@ const CharacterHomepage = () => {
       
       {!user && <div className="bg-gradient-to-r from-primary/10 to-purple-500/10 py-12 border-b border-border">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl font-bold mb-6">Meet your Agentic Cybersecurity Team</h1>
+            <h1 className="text-4xl font-bold mb-6">Hire your Agentic Cybersecurity Team</h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Deploy expert autonomous cybersecurity agents to proactively defend your organization and seamlessly automate routine security operations with precision.</p>
             <Button onClick={() => navigate('/signup')} size="lg" className="rounded-full font-medium">
               Get Started
