@@ -19,7 +19,16 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {agents.map((agent) => (
           <div key={agent.id} className="relative group overflow-hidden rounded-lg border border-border bg-card hover:border-primary/50 transition-all duration-300">
-            <div className="h-24" style={{ background: agent.image }}></div>
+            <div className="h-24 overflow-hidden">
+              <div 
+                style={{ 
+                  background: agent.image,
+                  width: '100%',
+                  height: '100%'
+                }}
+                className="w-full h-full"
+              />
+            </div>
             <div className="flex p-4">
               <Avatar className="h-14 w-14 rounded-md mr-3 flex-shrink-0 -mt-8 border-4 border-background">
                 {agent.avatar ? (
