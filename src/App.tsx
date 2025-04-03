@@ -16,7 +16,6 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import CharacterHomepage from "./pages/CharacterHomepage";
 import Marketplace from "./pages/Marketplace";
 import MarketplaceUsage from "./pages/MarketplaceUsage";
-import SecurityChat from "./pages/SecurityChat";
 
 const queryClient = new QueryClient();
 
@@ -32,18 +31,6 @@ const App = () => (
             <Route path="/" element={<CharacterHomepage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            
-            {/* Security Chat Page */}
-            <Route 
-              path="/security-chat" 
-              element={
-                <ProtectedRoute>
-                  <Layout>
-                    <SecurityChat />
-                  </Layout>
-                </ProtectedRoute>
-              } 
-            />
             
             {/* Protected routes */}
             <Route 

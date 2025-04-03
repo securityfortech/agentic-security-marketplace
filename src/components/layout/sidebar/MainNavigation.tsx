@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { LayoutDashboard, ShoppingBag, Bot, Activity, BarChart, MessageSquare } from 'lucide-react';
+import { LayoutDashboard, ShoppingBag, Bot, Activity, BarChart } from 'lucide-react';
 import SidebarItem from './SidebarItem';
 import { 
   SidebarMenu, 
@@ -19,7 +19,6 @@ const MainNavigation = ({ pathname }: MainNavigationProps) => {
   const mainNavItems = [
     { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
     { icon: Bot, label: "Your Agents", path: "/your-agents" },
-    { icon: MessageSquare, label: "Security Chat", path: "/security-chat" },
     { icon: Activity, label: "Activity", path: "/activity" },
   ];
 
@@ -58,3 +57,4 @@ const MainNavigation = ({ pathname }: MainNavigationProps) => {
 };
 
 export default MainNavigation;
+

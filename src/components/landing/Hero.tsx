@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Brain, ArrowRight, MessageSquare } from 'lucide-react';
+import { Brain, ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -30,12 +31,6 @@ const Hero = () => {
           <Button asChild size="lg" variant="outline" className="rounded-full">
             <Link to="/marketplace">Explore Agents</Link>
           </Button>
-          <Button asChild size="lg" variant="secondary" className="rounded-full group">
-            <Link to="/security-chat" className="flex items-center">
-              <MessageSquare className="mr-2 h-4 w-4" />
-              Chat with AI
-            </Link>
-          </Button>
         </div>
       </div>
       
@@ -56,6 +51,7 @@ const Hero = () => {
           <div className="absolute bottom-1/3 left-1/3 w-4 h-4 rounded-full bg-blue-200 animate-pulse delay-100"></div>
           <div className="absolute top-1/2 right-1/3 w-3 h-3 rounded-full bg-blue-100 animate-pulse delay-200"></div>
           
+          {/* Connecting lines */}
           <div className="absolute top-0 left-0 w-full h-full">
             <svg className="w-full h-full" viewBox="0 0 200 200">
               <path

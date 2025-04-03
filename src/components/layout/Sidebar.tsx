@@ -9,7 +9,7 @@ const Sidebar = () => {
   const pathname = location.pathname;
 
   return (
-    <div className="flex h-full w-full flex-col bg-sidebar border-r border-border">
+    <div className="hidden md:flex h-full w-64 flex-col bg-sidebar border-r border-border">
       <div className="flex flex-col gap-4 p-4">
         <div className="border-b border-border pb-4">
           <MainNavigation pathname={pathname} />
