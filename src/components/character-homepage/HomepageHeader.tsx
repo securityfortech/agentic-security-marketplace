@@ -1,22 +1,16 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bell, User, Settings, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
-import { 
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-
 const HomepageHeader = () => {
   const navigate = useNavigate();
-  const { user, signOut } = useAuth();
+  const {
+    user,
+    signOut
+  } = useAuth();
 
   // Generate initials for avatar fallback
   const getInitials = () => {
@@ -24,20 +18,17 @@ const HomepageHeader = () => {
     const name = user.user_metadata?.name || user.email || '';
     return name.split('@')[0].substring(0, 2).toUpperCase();
   };
-
-  return (
-    <header className={`${user ? 'bg-card' : 'bg-background'} py-4 border-b border-border ${user ? 'h-16 flex items-center' : ''}`}>
+  return <header className={`${user ? 'bg-card' : 'bg-background'} py-4 border-b border-border ${user ? 'h-16 flex items-center' : ''}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center space-x-4">
-          <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
+          <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center px-0 mx-0">
             <span className="text-primary-foreground font-bold">AS</span>
           </div>
           <h1 className="text-xl font-bold">Agentic Security</h1>
         </div>
         
         <div className="flex items-center space-x-4">
-          {user ? (
-            <>
+          {user ? <>
               <Button variant="ghost" size="icon" className="text-foreground">
                 <Bell className="h-5 w-5" />
               </Button>
@@ -72,21 +63,16 @@ const HomepageHeader = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-            </>
-          ) : (
-            <>
+            </> : <>
               <Button variant="ghost" onClick={() => navigate('/login')}>
                 Sign In
               </Button>
               <Button onClick={() => navigate('/signup')}>
                 Get Started
               </Button>
-            </>
-          )}
+            </>}
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default HomepageHeader;
