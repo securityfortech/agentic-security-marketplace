@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useAgentFilter } from '@/hooks/use-agent-filter';
@@ -11,12 +10,14 @@ import AgentCategories from '@/components/character-homepage/AgentCategories';
 import AgentSpotlight from '@/components/character-homepage/AgentSpotlight';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-
 const CharacterHomepage = () => {
-  const { user } = useAuth();
-  const { toast } = useToast();
+  const {
+    user
+  } = useAuth();
+  const {
+    toast
+  } = useToast();
   const navigate = useNavigate();
-  
   const {
     searchTerm,
     selectedTypes,
@@ -25,72 +26,46 @@ const CharacterHomepage = () => {
     handleTypeClear,
     filteredAgents
   } = useAgentFilter(marketplaceAgents);
-  
   const [showMobileSearch, setShowMobileSearch] = useState(false);
-  
   const handleHireAgent = (agent: any) => {
     if (!user) {
       toast({
         title: "Authentication Required",
-        description: "Please sign in or create an account to hire agents.",
+        description: "Please sign in or create an account to hire agents."
       });
       navigate('/signup');
     } else {
       toast({
         title: "Agent Hired",
-        description: `${agent.name} has been added to your team.`,
+        description: `${agent.name} has been added to your team.`
       });
     }
   };
-  
+
   // Get featured agents for spotlight section
   const featuredAgents = marketplaceAgents.filter(agent => agent.featured).slice(0, 3);
-  
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <HomepageHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       
-      {!user && (
-        <div className="bg-gradient-to-r from-primary/10 to-purple-500/10 py-12 border-b border-border">
+      {!user && <div className="bg-gradient-to-r from-primary/10 to-purple-500/10 py-12 border-b border-border">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl font-bold mb-6">Meet your AI Security Agents</h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Chat with specialized security agents designed to protect your organization
-              from various cyber threats.
-            </p>
-            <Button 
-              onClick={() => navigate('/signup')} 
-              size="lg" 
-              className="rounded-full font-medium"
-            >
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Deploy specialized cybersecurity agents designed to defend your organization from cyber threats and handle routine security tasks with precision.</p>
+            <Button onClick={() => navigate('/signup')} size="lg" className="rounded-full font-medium">
               Get Started
             </Button>
           </div>
-        </div>
-      )}
+        </div>}
       
       <main className="container mx-auto px-4 py-8">
-        {featuredAgents.length > 0 && (
-          <AgentSpotlight agents={featuredAgents} onHireAgent={handleHireAgent} />
-        )}
+        {featuredAgents.length > 0 && <AgentSpotlight agents={featuredAgents} onHireAgent={handleHireAgent} />}
         
-        <MobileSearchAndFilter 
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          selectedTypes={selectedTypes}
-          handleTypeSelect={handleTypeSelect}
-          handleTypeClear={handleTypeClear}
-        />
+        <MobileSearchAndFilter searchTerm={searchTerm} setSearchTerm={setSearchTerm} selectedTypes={selectedTypes} handleTypeSelect={handleTypeSelect} handleTypeClear={handleTypeClear} />
         
-        <AgentCategories 
-          filteredAgents={filteredAgents} 
-          onHireAgent={handleHireAgent} 
-        />
+        <AgentCategories filteredAgents={filteredAgents} onHireAgent={handleHireAgent} />
       </main>
       
       <HomepageFooter />
-    </div>
-  );
+    </div>;
 };
-
 export default CharacterHomepage;
