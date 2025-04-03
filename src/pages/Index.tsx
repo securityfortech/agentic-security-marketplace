@@ -1,10 +1,20 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Shield, Bot, BarChart, Lock, Code, Search, Brain, ArrowRight, CheckCircle } from 'lucide-react';
+import { Shield, Bot, BarChart, Lock, Code, Search, Brain, ArrowRight, CheckCircle, Bell, User, Settings, LogOut } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
 
 const Index = () => {
+  const { user, signOut } = useAuth();
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero section with improved styling */}
@@ -17,17 +27,56 @@ const Index = () => {
               </div>
               <span className="font-bold text-xl">Agentic Security</span>
             </div>
-            <div className="hidden sm:flex space-x-4">
-              <Button asChild variant="ghost" className="rounded-full">
-                <Link to="/login">Sign In</Link>
-              </Button>
-              <Button asChild className="rounded-full">
-                <Link to="/signup">Sign Up</Link>
+            <div className="flex items-center space-x-4">
+              {user ? (
+                <>
+                  <Button variant="ghost" size="icon" className="text-foreground">
+                    <Bell className="h-5 w-5" />
+                  </Button>
+                  
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="icon" className="rounded-full">
+                        <User className="h-5 w-5" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-56">
+                      <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem asChild>
+                        <Link to="/profile" className="flex items-center">
+                          <User className="mr-2 h-4 w-4" />
+                          <span>Profile</span>
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link to="/settings" className="flex items-center">
+                          <Settings className="mr-2 h-4 w-4" />
+                          <span>Settings</span>
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem onClick={signOut} className="cursor-pointer">
+                        <LogOut className="mr-2 h-4 w-4" />
+                        <span>Logout</span>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </>
+              ) : (
+                <div className="hidden sm:flex space-x-4">
+                  <Button asChild variant="ghost" className="rounded-full">
+                    <Link to="/login">Sign In</Link>
+                  </Button>
+                  <Button asChild className="rounded-full">
+                    <Link to="/signup">Sign Up</Link>
+                  </Button>
+                </div>
+              )}
+              <Button asChild variant="outline" size="icon" className="sm:hidden">
+                <Link to="/login"><ArrowRight className="h-4 w-4" /></Link>
               </Button>
             </div>
-            <Button asChild variant="outline" size="icon" className="sm:hidden">
-              <Link to="/login"><ArrowRight className="h-4 w-4" /></Link>
-            </Button>
           </nav>
           
           <div className="flex flex-col lg:flex-row items-center gap-12 py-8 md:py-14">
