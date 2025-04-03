@@ -14,7 +14,7 @@ const Hero = () => {
         </div>
         
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-          Deploy AI <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">Cybersecurity</span> Agents On-Demand
+          Hire an <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">Agentic Security</span> Assistant
         </h1>
         
         <p className="text-lg text-muted-foreground max-w-2xl">
