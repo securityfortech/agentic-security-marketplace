@@ -3,6 +3,7 @@ import React from 'react';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { agentTypes } from '@/components/agents/AgentFilter';
 
 interface MobileSearchAndFilterProps {
   searchTerm: string;
@@ -42,7 +43,7 @@ const MobileSearchAndFilter = ({
         </div>
         
         <div className="flex flex-wrap gap-2">
-          {['IT', 'Compliance', 'Pentest', 'Response', 'Awareness'].map((type) => (
+          {agentTypes.map((type) => (
             <Button 
               key={type} 
               variant={selectedTypes.includes(type) ? "default" : "outline"} 
