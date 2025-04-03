@@ -3,13 +3,14 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import MainNavigation from './sidebar/MainNavigation';
 import SupportNavigation from './sidebar/SupportNavigation';
+import { ChevronLeft } from 'lucide-react';
 
 const Sidebar = () => {
   const location = useLocation();
   const pathname = location.pathname;
 
   return (
-    <div className="hidden md:flex h-full w-64 flex-col bg-sidebar border-r border-border">
+    <div className="flex h-full w-full flex-col bg-sidebar border-r border-border">
       <div className="flex flex-col gap-4 p-4">
         <div className="border-b border-border pb-4">
           <MainNavigation pathname={pathname} />
