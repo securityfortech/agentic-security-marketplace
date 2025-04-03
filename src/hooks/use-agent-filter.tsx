@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Agent } from '@/components/agents/AgentCard';
+import { Agent } from '@/components/marketplace/marketplaceData';
 
 export function useAgentFilter(agents: Agent[]) {
   const [searchTerm, setSearchTerm] = useState('');

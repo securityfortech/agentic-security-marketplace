@@ -19,8 +19,9 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {agents.map((agent) => (
           <div key={agent.id} className="relative group overflow-hidden rounded-lg border border-border bg-card hover:border-primary/50 transition-all duration-300">
+            <div className="h-24" style={{ background: agent.image }}></div>
             <div className="flex p-4">
-              <Avatar className="h-14 w-14 rounded-md mr-3 flex-shrink-0">
+              <Avatar className="h-14 w-14 rounded-md mr-3 flex-shrink-0 -mt-8 border-4 border-background">
                 {agent.avatar ? (
                   <AvatarImage src={agent.avatar} alt={agent.name} />
                 ) : (
@@ -33,7 +34,10 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
               <div className="flex flex-col min-w-0">
                 <h3 className="font-semibold text-base truncate">{agent.name}</h3>
                 <p className="text-xs text-muted-foreground truncate">By @{agent.creator}</p>
-                <Badge variant="outline" className="mt-1 self-start text-xs">{agent.category}</Badge>
+                <div className="flex gap-1 mt-1">
+                  <Badge variant="outline" className="self-start text-xs">{agent.category}</Badge>
+                  <Badge variant="secondary" className="self-start text-xs">{agent.type}</Badge>
+                </div>
               </div>
             </div>
 
@@ -68,7 +72,7 @@ const AgentCategory = ({ title, agents, onHire }: AgentCategoryProps) => {
                 className="text-xs h-7 hover:bg-primary hover:text-primary-foreground"
                 onClick={() => onHire?.(agent)}
               >
-                Hire Agent
+                Hire
               </Button>
             </div>
           </div>

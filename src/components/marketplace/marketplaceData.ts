@@ -1,14 +1,4 @@
-export interface Agent {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  category: string;
-  status: 'active' | 'inactive';
-  features: string[];
-}
 
-// Update the Agent interface to include additional fields needed for Character.ai style
 export interface Agent {
   id: string;
   name: string;
@@ -21,6 +11,8 @@ export interface Agent {
   featured?: boolean;
   creator?: string;
   interactions: number;
+  type: string; // Adding type property for filtering
+  image: string; // Adding colorful image for each agent
 }
 
 // Updated data with new fields
@@ -36,6 +28,8 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'securitylab',
     interactions: 317500,
+    type: 'IT',
+    image: 'linear-gradient(135deg, #6E59A5, #9b87f5)',
     features: [
       'Real-time traffic analysis',
       'Anomaly detection',
@@ -54,6 +48,8 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'firewallpro',
     interactions: 64800,
+    type: 'Response',
+    image: 'linear-gradient(180deg, #F97316, #FDE1D3)',
     features: [
       'Firewall integration',
       'Intrusion prevention',
@@ -71,6 +67,8 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'dataguard',
     interactions: 128000,
+    type: 'Compliance',
+    image: 'linear-gradient(90deg, #0EA5E9, #D3E4FD)',
     features: [
       'Data encryption',
       'Access control',
@@ -89,6 +87,8 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'threatintel',
     interactions: 482100,
+    type: 'Pentest',
+    image: 'linear-gradient(39, 100%, 77%, 1) 0%, hsla(22, 90%, 57%, 1) 100%)',
     features: [
       'Advanced threat detection',
       'Behavior analysis',
@@ -106,6 +106,8 @@ export const marketplaceAgents: Agent[] = [
     status: 'inactive',
     creator: 'regulatorypro',
     interactions: 56600,
+    type: 'Compliance',
+    image: 'linear-gradient(to right, #ee9ca7, #ffdde2)',
     features: [
       'Compliance reporting',
       'Policy enforcement',
@@ -124,6 +126,8 @@ export const marketplaceAgents: Agent[] = [
     featured: true,
     creator: 'incidentteam',
     interactions: 98700,
+    type: 'Response',
+    image: 'linear-gradient(90deg, hsla(59, 86%, 68%, 1) 0%, hsla(134, 36%, 53%, 1) 100%)',
     features: [
       'Automated response',
       'Incident analysis',
@@ -141,6 +145,8 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'securityscan',
     interactions: 204300,
+    type: 'Pentest',
+    image: 'linear-gradient(to top, #d299c2 0%, #fef9d7 100%)',
     features: [
       'Automated scanning',
       'Vulnerability prioritization',
@@ -158,6 +164,8 @@ export const marketplaceAgents: Agent[] = [
     status: 'active',
     creator: 'endpointdef',
     interactions: 187000,
+    type: 'Awareness',
+    image: 'linear-gradient(90deg, hsla(277, 75%, 84%, 1) 0%, hsla(297, 50%, 51%, 1) 100%)',
     features: [
       'Anti-malware',
       'Device control',

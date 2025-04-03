@@ -18,6 +18,7 @@ export interface Agent {
   skills: AgentSkill[];
   price: string;
   status?: 'active' | 'inactive' | 'warning' | 'error';
+  image?: string;
 }
 
 interface AgentCardProps {
@@ -34,7 +35,11 @@ const AgentCard: React.FC<AgentCardProps> = ({
   onTerminate
 }) => {
   return (
-    <Card className="agent-card">
+    <Card className="agent-card overflow-hidden">
+      {agent.image && (
+        <div className="h-24" style={{ background: agent.image }}></div>
+      )}
+      
       <CardHeader className="p-4 pb-2">
         <div className="flex justify-between items-start">
           <div className="flex items-center gap-2">
@@ -78,7 +83,7 @@ const AgentCard: React.FC<AgentCardProps> = ({
         ) : (
           <Button size="sm" onClick={() => onHire?.(agent)}>
             <Shield className="mr-2 h-4 w-4" />
-            Hire Agent
+            Hire
           </Button>
         )}
       </CardFooter>
