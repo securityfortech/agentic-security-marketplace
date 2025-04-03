@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Agent } from '@/data/agents/types';
 import { Button } from '@/components/ui/button';
@@ -16,7 +15,6 @@ interface AgentCategoriesProps {
   onHireAgent: (agent: Agent) => void;
 }
 
-// Function to determine icon based on agent type
 const getAgentIcon = (type: string) => {
   switch (true) {
     case type.includes('Offensive Security'):

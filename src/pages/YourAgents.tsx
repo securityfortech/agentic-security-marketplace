@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import { Agent } from '@/components/agents/AgentCard';
 import AgentList from '@/components/agents/AgentList';
 import AgentStatus from '@/components/agents/AgentStatus';
+import { Agent } from '@/data/agents/types';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertTriangle, Plus } from 'lucide-react';

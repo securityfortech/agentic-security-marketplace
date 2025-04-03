@@ -20,4 +20,5 @@ export interface Agent {
   image: string;
   title?: string;
   skills?: AgentSkill[];
+  featured?: boolean;
 }

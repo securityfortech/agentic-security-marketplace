@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Bot } from 'lucide-react';
+import { Bot, Circle, Shield } from 'lucide-react';
 import { Agent, AgentSkill } from '@/data/agents/types';
 import { useToast } from '@/hooks/use-toast';
 

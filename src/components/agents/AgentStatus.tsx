@@ -6,7 +6,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { RefreshCw, Play, Square, AlertTriangle, CheckCircle, Clock } from 'lucide-react';
-import { Agent } from './AgentCard';
+import { Agent } from '@/data/agents/types';
 
 const cpuData = [
   { time: '12:00', value: 30 },
