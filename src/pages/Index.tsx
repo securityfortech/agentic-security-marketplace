@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { 
@@ -7,7 +6,9 @@ import {
   HardDrive, 
   Activity,
   ExternalLink,
-  CheckCircle2
+  CheckCircle2,
+  FileCode,  // Add this import
+  ShieldAlert
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -179,6 +180,5 @@ const Index = () => {
 };
 
 // Missing ShieldAlert component import
-import { ShieldAlert } from 'lucide-react'; 
 
 export default Index;
