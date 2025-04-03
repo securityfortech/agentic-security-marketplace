@@ -3,7 +3,6 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import MainNavigation from './sidebar/MainNavigation';
 import SupportNavigation from './sidebar/SupportNavigation';
-import { ChevronLeft } from 'lucide-react';
 
 const Sidebar = () => {
   const location = useLocation();
