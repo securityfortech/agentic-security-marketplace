@@ -18,4 +18,5 @@ export interface Agent {
   interactions: number;
   type: string;
   image: string;
+  title?: string;
 }
