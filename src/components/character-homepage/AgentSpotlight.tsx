@@ -26,7 +26,10 @@ const AgentSpotlight = ({
             <div className="p-5 flex flex-col h-full">
               <div className="flex items-center mb-4">
                 <Avatar className="h-16 w-16 rounded-xl border-2 border-primary/20">
-                  <img src={agent.avatar} alt={agent.name} className="object-cover" />
+                  <div 
+                    style={{ background: agent.image }} 
+                    className="w-full h-full rounded-xl"
+                  />
                 </Avatar>
                 <div className="ml-4">
                   <h3 className="font-bold text-lg">{agent.name}</h3>

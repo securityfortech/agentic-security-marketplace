@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Agent } from '@/components/agents/AgentCard';
+import { Agent } from '@/components/marketplace/marketplaceData';
 import { Button } from '@/components/ui/button';
 import { Avatar } from '@/components/ui/avatar';
 import { MessageCircle } from 'lucide-react';
@@ -71,10 +71,9 @@ const CategorySection = ({ title, agents, onHireAgent }: CategorySectionProps) =
           >
             <div className="flex items-start mb-3">
               <Avatar className="h-12 w-12 rounded-lg border border-border">
-                <img 
-                  src={agent.avatar} 
-                  alt={agent.name} 
-                  className="object-cover"
+                <div 
+                  style={{ background: agent.image }} 
+                  className="w-full h-full rounded-lg"
                 />
               </Avatar>
               <div className="ml-3">
