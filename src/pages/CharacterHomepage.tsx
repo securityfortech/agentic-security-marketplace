@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input';
 import { marketplaceAgents } from '@/components/marketplace/marketplaceData';
 import AgentCategory from '@/components/marketplace/AgentCategory';
 import { useAuth } from '@/contexts/AuthContext';
-import AgentFilter from '@/components/agents/AgentFilter';
 import { useAgentFilter } from '@/hooks/use-agent-filter';
 import { useToast } from '@/hooks/use-toast';
 
@@ -165,17 +164,6 @@ const CharacterHomepage = () => {
             )}
           </>
         )}
-        
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-4">Categories</h2>
-          <div className="flex flex-wrap gap-2">
-            {['IT', 'Compliance', 'Pentest', 'Response', 'Awareness'].map((category) => (
-              <Button key={category} variant="outline" className="rounded-full">
-                {category}
-              </Button>
-            ))}
-          </div>
-        </div>
       </main>
       
       <footer className="py-8 bg-background border-t border-border mt-12">
