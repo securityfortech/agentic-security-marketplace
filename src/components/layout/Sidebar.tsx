@@ -54,12 +54,6 @@ const Sidebar = () => {
     <div className="hidden md:flex h-full w-64 flex-col bg-sidebar border-r border-border">
       <div className="flex flex-col gap-4 p-4">
         <div className="border-b border-border pb-4">
-          <Link to="/" className="flex items-center gap-2 font-semibold mb-8">
-            <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold">AS</span>
-            </div>
-            {/* Removed the "Agentic Security" text */}
-          </Link>
           
           <nav className="flex flex-col gap-1">
             {mainNavItems.map((item) => (
