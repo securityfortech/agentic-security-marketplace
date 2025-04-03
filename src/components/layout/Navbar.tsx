@@ -29,10 +29,10 @@ const Navbar = () => {
       <div className="flex-1 flex items-center justify-between w-full">
         <div className="flex items-center space-x-2">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
+            <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold">AS</span>
             </div>
-            <span className="font-bold text-lg hidden md:inline-block">Agentic Security</span>
+            <span className="font-bold text-xl hidden md:inline-block">Agentic Security</span>
           </Link>
         </div>
 

@@ -32,6 +32,7 @@ const LandingHeader = () => {
         </div>
         <span className="font-bold text-xl">Agentic Security</span>
       </div>
+      
       <div className="flex items-center space-x-4">
         {user ? (
           <>
